@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://hfuqjcey1jjr"]
+
+[ext_resource type="Script" path="res://Scripts/CharacterController.cs" id="2_a0tk4"]
+[ext_resource type="PackedScene" uid="uid://bs5547r7nr6hn" path="res://3D-Art/cube.fbx" id="2_noarx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3xsyb"]
+size = Vector3(1, 0.98828125, 1.2634277)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d84jn"]
+size = Vector3(0.4671631, 0.4925537, 0.71240234)
+
+[node name="Node3D" type="Node3D" unique_id=1266753331]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=242545521]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 24.057812, 0)
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=2054155959]
+script = ExtResource("2_a0tk4")
+size = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=432283160]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52734375, -0.13171387)
+shape = SubResource("BoxShape3D_3xsyb")
+
+[node name="cube" parent="CharacterBody3D" unique_id=884895613 instance=ExtResource("2_noarx")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="." unique_id=1443702819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.808228, 0, 0)
+gravity_scale = 0.0
+metadata/size = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2" unique_id=237884212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028015137, 0.26202393, 0.06616211)
+shape = SubResource("BoxShape3D_d84jn")
+
+[node name="cube" parent="RigidBody3D2" unique_id=810603139 instance=ExtResource("2_noarx")]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1573664672]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.904114, 0, 0)
+gravity_scale = 0.0
+metadata/size = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=670079584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028015137, 0.26202393, 0.06616211)
+shape = SubResource("BoxShape3D_d84jn")
+
+[node name="cube" parent="RigidBody3D" unique_id=1260884376 instance=ExtResource("2_noarx")]
+
+[node name="RigidBody3D3" type="RigidBody3D" parent="." unique_id=630564043]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.616455, 0, 0)
+gravity_scale = 0.0
+metadata/size = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3" unique_id=413209408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028015137, 0.26202393, 0.06616211)
+shape = SubResource("BoxShape3D_d84jn")
+
+[node name="cube" parent="RigidBody3D3" unique_id=1026107508 instance=ExtResource("2_noarx")]
+
+[node name="RigidBody3D4" type="RigidBody3D" parent="." unique_id=1863639834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.712341, 0, 0)
+gravity_scale = 0.0
+metadata/size = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4" unique_id=1201200019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028015137, 0.26202393, 0.06616211)
+shape = SubResource("BoxShape3D_d84jn")
+
+[node name="cube" parent="RigidBody3D4" unique_id=1553203770 instance=ExtResource("2_noarx")]
