@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://o77fmum70w4b"]
+
+[ext_resource type="Script" uid="uid://cyggjpmx3nrfs" path="res://scripts/camera.gd" id="1_0wfyh"]
+[ext_resource type="Shader" uid="uid://d3yg7r1gtoshf" path="res://scenes/dither.gdshader" id="1_dither"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
+sky_top_color = Color(0.09930355, 0.1364044, 0.27257028, 1)
+sky_horizon_color = Color(0.10980392, 0.13333334, 0.19607843, 1)
+sky_curve = 0.07845911
+ground_bottom_color = Color(0.09803922, 0.13725491, 0.27450982, 1)
+ground_horizon_color = Color(0.11049137, 0.13257882, 0.19517186, 1)
+ground_curve = 0.19318767
+
+[sub_resource type="Sky" id="Sky_o5qli"]
+sky_material = SubResource("ProceduralSkyMaterial_o5qli")
+
+[sub_resource type="Environment" id="Environment_0wfyh"]
+background_mode = 2
+sky = SubResource("Sky_o5qli")
+ambient_light_source = 3
+ambient_light_color = Color(0.83975405, 0.83975405, 0.839754, 1)
+ambient_light_sky_contribution = 0.68
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dither"]
+render_priority = 0
+shader = ExtResource("1_dither")
+shader_parameter/dither_repeat = 1.0
+shader_parameter/dither_strength = 0.5
+shader_parameter/color_levels = 4.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_dither"]
+material = SubResource("ShaderMaterial_dither")
+size = Vector2(2, 2)
+
+[node name="Main" type="Node3D" unique_id=1154245291]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1319171211]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1755339013]
+environment = SubResource("Environment_0wfyh")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1079991752]
+transform = Transform3D(0.7055845, -0.19223587, 0.6820527, 0, 0.9625005, 0.27127987, -0.70862573, -0.19141085, 0.67912555, 1.8547239, 1.179728, 1.8353326)
+script = ExtResource("1_0wfyh")
+
+[node name="PostProcessing" type="MeshInstance3D" parent="Camera3D" unique_id=1475329074]
+extra_cull_margin = 16000.0
+mesh = SubResource("QuadMesh_dither")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1919987408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050239444, -1.244167, -1.5388184)
+use_collision = true
+size = Vector3(8.538818, 1, 8.279785)
