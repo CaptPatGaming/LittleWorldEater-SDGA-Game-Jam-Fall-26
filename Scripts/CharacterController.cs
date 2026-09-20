@@ -6,7 +6,11 @@ public partial class CharacterController : CharacterBody3D
 {
 	// Called when the node enters the scene tree for the first time.
 	[Export]public int speed = 5;
-	[Export]int size = 2;
+	[Export]int size = 1;
+	[Export]int mass = 0;
+	[Export]int[] massGoal;
+	[Export]int[] sizeScalar;
+	[Export]CollisionShape3D collisionShape;
 	public override void _Ready()
 	{
 	}
@@ -49,17 +53,21 @@ public partial class CharacterController : CharacterBody3D
 			Node collider = GetSlideCollision(i).GetCollider() as Node;
 			if(collider != null && collider.HasMeta("size"))
 			{
-				TryEat(collider, (int)collider.GetMeta("size"));
+				TryEat(collider, (int)collider.GetMeta("size"), (int)collider.GetMeta("mass"));
 			}
 		}
 	}
-	public void TryEat(Node _object, int s)
+	public void TryEat(Node _object, int s, int m)
 	{
 		if( s < size)
 		{
-			size++;
+			mass+=m;
 			_object.QueueFree();
 			Debug.WriteLine("New Size: " + size);
 		}
+	}
+	public void Resize()
+	{
+		
 	}
 }

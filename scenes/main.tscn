@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cyggjpmx3nrfs" path="res://Scripts/camera.gd" id="1_0wfyh"]
 [ext_resource type="Shader" uid="uid://d3yg7r1gtoshf" path="res://Scenes/dither.gdshader" id="1_dither"]
+[ext_resource type="PackedScene" uid="uid://dkxnjpdn0bpcl" path="res://3D-Art/Table_Large_Lab.glb" id="3_8gbba"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
 sky_top_color = Color(0.09930355, 0.1364044, 0.27257028, 1)
@@ -53,3 +54,6 @@ mesh = SubResource("QuadMesh_dither")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050239444, -1.244167, -1.5388184)
 use_collision = true
 size = Vector3(8.538818, 1, 8.279785)
+
+[node name="Table_Large_Lab" parent="." unique_id=1866823354 instance=ExtResource("3_8gbba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020855427, 0.18928218, 0.0010328293)
