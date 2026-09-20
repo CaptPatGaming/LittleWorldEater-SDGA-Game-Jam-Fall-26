@@ -1,16 +1,18 @@
 using Godot;
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 
 public partial class CharacterController : CharacterBody3D
 {
 	// Called when the node enters the scene tree for the first time.
 	[Export]public int speed = 5;
-	[Export]int size = 1;
+	[Export][Range(1, 5)]int size = 1;
 	[Export]int mass = 0;
 	[Export]int[] massGoal;
 	[Export]int[] sizeScalar;
-	[Export]CollisionShape3D collisionShape;
+	[Export]Node3D collision;
+	[Export]Node3D model;
 	public override void _Ready()
 	{
 	}
@@ -63,11 +65,16 @@ public partial class CharacterController : CharacterBody3D
 		{
 			mass+=m;
 			_object.QueueFree();
-			Debug.WriteLine("New Size: " + size);
+			if(mass >= massGoal[size - 1])
+			{
+				size++;
+				Resize();
+			}
 		}
 	}
 	public void Resize()
 	{
-		
+		model.Scale *= sizeScalar[size-1];
+		collision.Scale *= sizeScalar[size-1];
 	}
 }
