@@ -28,11 +28,11 @@ public partial class CharacterController : CharacterBody3D
 		Vector3 direction = Vector3.Zero;
 		if (Input.IsActionPressed("move_up"))
 		{
-			direction.Z++;
+			direction.Z--;
 		}
 		if (Input.IsActionPressed("move_down"))
 		{
-			direction.Z--;
+			direction.Z++;
 		}
 		if (Input.IsActionPressed("move_left"))
 		{
