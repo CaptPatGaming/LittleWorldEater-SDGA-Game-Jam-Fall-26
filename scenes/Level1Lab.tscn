@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://b8x864qysu8aa"]
+
+[ext_resource type="Script" uid="uid://cyggjpmx3nrfs" path="res://scripts/camera.gd" id="1_ahpur"]
+[ext_resource type="Shader" uid="uid://d3yg7r1gtoshf" path="res://scenes/dither.gdshader" id="2_43fsd"]
+[ext_resource type="PackedScene" uid="uid://bm86frupxf5yl" path="res://assets/Containment_Lab.glb" id="3_dsalb"]
+[ext_resource type="PackedScene" uid="uid://dgqlem38pyovh" path="res://assets/Main_Lab.glb" id="4_iypmn"]
+[ext_resource type="PackedScene" uid="uid://cx0f5cpaw7q42" path="res://assets/BlackHoleSize1.glb" id="5_ll1a2"]
+[ext_resource type="PackedScene" uid="uid://x3ctxqv43vtt" path="res://assets/Table_Medium_Lab.glb" id="6_iypmn"]
+[ext_resource type="PackedScene" uid="uid://yj3t4kd6tp0q" path="res://assets/Flask_Small_Lab.glb" id="7_ll1a2"]
+[ext_resource type="PackedScene" uid="uid://oddgqy3amfxa" path="res://assets/Table_Large_Lab.glb" id="8_iodom"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
+sky_top_color = Color(0.09930355, 0.1364044, 0.27257028, 1)
+sky_horizon_color = Color(0.10980392, 0.13333334, 0.19607843, 1)
+sky_curve = 0.07845911
+ground_bottom_color = Color(0.09803922, 0.13725491, 0.27450982, 1)
+ground_horizon_color = Color(0.11049137, 0.13257882, 0.19517186, 1)
+ground_curve = 0.19318767
+
+[sub_resource type="Sky" id="Sky_o5qli"]
+sky_material = SubResource("ProceduralSkyMaterial_o5qli")
+
+[sub_resource type="Environment" id="Environment_0wfyh"]
+background_mode = 2
+sky = SubResource("Sky_o5qli")
+ambient_light_source = 3
+ambient_light_color = Color(0.83975405, 0.83975405, 0.839754, 1)
+ambient_light_sky_contribution = 0.68
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dither"]
+render_priority = 0
+shader = ExtResource("2_43fsd")
+shader_parameter/dither_repeat = 1.0
+shader_parameter/dither_strength = 0.5
+shader_parameter/color_levels = 4.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_dither"]
+material = SubResource("ShaderMaterial_dither")
+size = Vector2(2, 2)
+
+[node name="Main" type="Node3D" unique_id=1154245291]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1319171211]
+transform = Transform3D(-0.86563313, -0.4177696, 0.27594906, 0.026062274, 0.5128046, 0.85810965, -0.50000006, 0.75, -0.43301266, 38.2321, 398.0105, 130.50122)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1755339013]
+environment = SubResource("Environment_0wfyh")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1079991752]
+transform = Transform3D(-0.78333986, 0.28411815, -0.55286133, -0.5403886, -0.75080955, 0.3798227, -0.307179, 0.59629023, 0.7416732, -97.39641, 336.25446, 114.95978)
+fov = 1.0
+script = ExtResource("1_ahpur")
+
+[node name="PostProcessing" type="MeshInstance3D" parent="Camera3D" unique_id=1475329074]
+extra_cull_margin = 16000.0
+mesh = SubResource("QuadMesh_dither")
+
+[node name="Containment_Lab" parent="." unique_id=292035741 instance=ExtResource("3_dsalb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 455.13928, 326.956, 139.9618)
+
+[node name="Main_Lab" parent="." unique_id=907265967 instance=ExtResource("4_iypmn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.932053, 321.16794, 131.0403)
+
+[node name="BlackHoleSize1" parent="." unique_id=2070736605 instance=ExtResource("5_ll1a2")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -76.832794, 333.02026, 115.670654)
+
+[node name="Table_Medium_Lab" parent="." unique_id=801495523 instance=ExtResource("6_iypmn")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -190.95103, 331.1046, 196.71082)
+
+[node name="Flask_Small_Lab" parent="." unique_id=674583662 instance=ExtResource("7_ll1a2")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -72.04512, 335.57745, 145.20917)
+
+[node name="Table_Medium_Lab2" parent="." unique_id=624623268 instance=ExtResource("6_iypmn")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -130.67152, 330.3396, 195.30832)
+
+[node name="Table_Medium_Lab3" parent="." unique_id=359781618 instance=ExtResource("6_iypmn")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -72.91018, 324.13168, 160.31245)
+
+[node name="Table_Large_Lab" parent="." unique_id=359099133 instance=ExtResource("8_iodom")]
+transform = Transform3D(-0.51953995, 0, -19.99325, 0, 20, 0, 19.99325, 0, -0.51953995, -42.717827, 332.26443, 222.12833)
+
+[node name="Table_Large_Lab2" parent="." unique_id=225819463 instance=ExtResource("8_iodom")]
+transform = Transform3D(-0.1974771, 0, 19.999025, 0, 19.999998, 0, -19.999025, 0, -0.1974771, -102.25333, 335.06482, 120.01577)
+
+[node name="Flask_Small_Lab2" parent="." unique_id=1241052387 instance=ExtResource("7_ll1a2")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -119.54973, 335.42816, 194.60046)
+
+[node name="Flask_Small_Lab3" parent="Flask_Small_Lab2" unique_id=800475156 instance=ExtResource("7_ll1a2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.097693, 0.068745136, -1.2905993)
+
+[node name="Table_Large_Lab3" parent="." unique_id=36573178 instance=ExtResource("8_iodom")]
+transform = Transform3D(0.18369031, 0, -19.999157, 0, 20.000002, 0, 19.999157, 0, 0.18369031, -42.73169, 332.9537, 124.97794)
+
+[node name="Table_Medium_Lab4" parent="." unique_id=599834300 instance=ExtResource("6_iypmn")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -166.26865, 331.71152, 102.891014)
+
+[node name="Flask_Small_Lab3" parent="." unique_id=1852413638 instance=ExtResource("7_ll1a2")]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -159.78189, 333.66357, 101.820335)
+
+[node name="Table_Large_Lab4" parent="." unique_id=290949944 instance=ExtResource("8_iodom")]
+transform = Transform3D(-0.31564683, 0, -19.997509, 0, 20, 0, 19.997509, 0, -0.31564683, -121.97573, 329.5815, 85.11705)
