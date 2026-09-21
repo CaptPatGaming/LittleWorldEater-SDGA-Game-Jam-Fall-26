@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cy4yw67e5wc48"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rifnr"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_mn4j2"]
+sky_material = SubResource("ProceduralSkyMaterial_rifnr")
+
+[sub_resource type="Environment" id="Environment_muise"]
+background_mode = 2
+sky = SubResource("Sky_mn4j2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s77ny"]
+albedo_color = Color(0.49411765, 0.9843137, 0.42745098, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fym7b"]
+albedo_color = Color(0.51718444, 0.5171845, 0.51718444, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_357j6"]
+albedo_color = Color(0.5176471, 0.5176471, 0.5176471, 1)
+
+[node name="City" type="Node3D" unique_id=874172927]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=495442503]
+transform = Transform3D(-0.9984159, -1.8596945e-09, 0.05626463, 0.032035448, 0.8220807, 0.5684691, -0.04625406, 0.56937104, -0.8207784, 0, 734.2355, -1825.7466)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=430085455]
+environment = SubResource("Environment_muise")
+
+[node name="CityFloor" type="CSGBox3D" parent="." unique_id=180685914]
+transform = Transform3D(142.25934, 0, 0, 0, 0.678848, 0, 0, 0, 132.82446, 0.3112718, -1.3296162, -1.15979)
+use_collision = true
+size = Vector3(8.539, 0.829, 8.539)
+material = SubResource("StandardMaterial3D_s77ny")
+
+[node name="LabFoundation" type="CSGBox3D" parent="." unique_id=167248453]
+transform = Transform3D(25.38, 0, 0, 0, 0.15199733, 0, 0, 0, 70.77513, -353.316, -0.920665, 302.64447)
+size = Vector3(2.1689453, 1, 1.1992188)
+material = SubResource("StandardMaterial3D_fym7b")
+
+[node name="Sidewalk2" type="CSGBox3D" parent="." unique_id=461718769]
+transform = Transform3D(25.38, 0, 0, 0, 0.15199733, 0, 0, 0, 3.818859, -298.55624, -0.947037, 302.64447)
+size = Vector3(2.1689453, 1, 1.1992188)
+material = SubResource("StandardMaterial3D_357j6")

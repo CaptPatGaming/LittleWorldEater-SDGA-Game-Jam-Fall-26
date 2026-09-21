@@ -56,4 +56,4 @@ use_collision = true
 size = Vector3(8.538818, 1, 8.279785)
 
 [node name="Table_Large_Lab" parent="." unique_id=1866823354 instance=ExtResource("3_8gbba")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020855427, -0.66388154, 0.0010328293)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9122214, -0.66388154, -0.007857442)
