@@ -1,31 +1,12 @@
 [gd_scene format=3 uid="uid://clfe68p0ooe0x"]
 
+[ext_resource type="Script" uid="uid://bbmoemcu8cwgd" path="res://Scripts/SceneLoader.cs" id="1_22qkm"]
 [ext_resource type="Script" uid="uid://cyggjpmx3nrfs" path="res://Scripts/camera.gd" id="1_ahpur"]
-[ext_resource type="Shader" uid="uid://d3yg7r1gtoshf" path="res://Scenes/dither.gdshader" id="2_43fsd"]
+[ext_resource type="Shader" uid="uid://d3yg7r1gtoshf" path="res://scenes/dither.gdshader" id="2_43fsd"]
+[ext_resource type="PackedScene" uid="uid://25rxd12sqy7e" path="res://3D-Art/FlaskNew.glb" id="3_53cgi"]
 [ext_resource type="PackedScene" uid="uid://bm86frupxf5yl" path="res://3D-Art/Containment_Lab.glb" id="3_dsalb"]
 [ext_resource type="PackedScene" uid="uid://dgqlem38pyovh" path="res://3D-Art/Main_Lab.glb" id="4_iypmn"]
-[ext_resource type="PackedScene" uid="uid://cx0f5cpaw7q42" path="res://3D-Art/BlackHoleSize1.glb" id="5_ll1a2"]
-[ext_resource type="PackedScene" uid="uid://x3ctxqv43vtt" path="res://3D-Art/Table_Medium_Lab.glb" id="6_iypmn"]
-[ext_resource type="PackedScene" uid="uid://yj3t4kd6tp0q" path="res://3D-Art/Flask_Small_Lab.glb" id="7_ll1a2"]
-[ext_resource type="PackedScene" uid="uid://oddgqy3amfxa" path="res://3D-Art/Table_Large_Lab.glb" id="8_iodom"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
-sky_top_color = Color(0.09930355, 0.1364044, 0.27257028, 1)
-sky_horizon_color = Color(0.10980392, 0.13333334, 0.19607843, 1)
-sky_curve = 0.07845911
-ground_bottom_color = Color(0.09803922, 0.13725491, 0.27450982, 1)
-ground_horizon_color = Color(0.11049137, 0.13257882, 0.19517186, 1)
-ground_curve = 0.19318767
-
-[sub_resource type="Sky" id="Sky_o5qli"]
-sky_material = SubResource("ProceduralSkyMaterial_o5qli")
-
-[sub_resource type="Environment" id="Environment_0wfyh"]
-background_mode = 2
-sky = SubResource("Sky_o5qli")
-ambient_light_source = 3
-ambient_light_color = Color(0.83975405, 0.83975405, 0.839754, 1)
-ambient_light_sky_contribution = 0.68
+[ext_resource type="PackedScene" uid="uid://csvrjrqp4lcre" path="res://assets/Table_Large_Lab.glb" id="6_22qkm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dither"]
 render_priority = 0
@@ -38,14 +19,51 @@ shader_parameter/color_levels = 4.0
 material = SubResource("ShaderMaterial_dither")
 size = Vector2(2, 2)
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b86a4"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_mn4j2"]
+sky_material = SubResource("ProceduralSkyMaterial_b86a4")
+
+[sub_resource type="Environment" id="Environment_gocn2"]
+background_mode = 2
+sky = SubResource("Sky_mn4j2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hsrur"]
+albedo_color = Color(0.8980392, 1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8sr63"]
+size = Vector3(1, 0.8223877, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pa6o6"]
+albedo_color = Color(0.45490196, 0.45490196, 0.45490196, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8sr63"]
+albedo_color = Color(0.45452422, 0.45452428, 0.45452422, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_vllbc"]
+data = PackedVector3Array(11.9484, 3.0916, 5.421, -11.773399, 3.0916, 11.8313, -11.773399, 3.0916, 5.421, 11.9484, 3.0916, 5.421, 11.9484, 3.0916, 11.8313, -11.773399, 3.0916, 11.8313, -11.773399, 3.0916, 5.421, -32.7795, 3.0916, 5.421, -32.7795, 3.0916, -6.0048, -11.773399, 3.0916, 5.421, -32.7795, 3.0916, -6.0048, -11.773399, 3.0916, -6.0048, 11.9484, 3.0916, -6.0048, 11.9484, 3.0916, 5.421, -11.773399, 3.0916, 5.421, 11.9484, 3.0916, -6.0048, -11.773399, 3.0916, 5.421, -11.773399, 3.0916, -6.0048, 11.9484, 3.0916, -11.890599, 11.9484, 3.0916, -6.0048, -11.773399, 3.0916, -6.0048, 11.9484, 3.0916, -11.890599, -11.773399, 3.0916, -6.0048, -11.773399, 3.0916, -11.890599, 11.9484, -1.6968, -11.890599, 11.9484, 3.0916, -6.0048, 11.9484, 3.0916, -11.890599, -11.773399, -1.6968, -11.890599, 11.9484, -1.6968, -11.890599, 11.9484, 3.0916, -11.890599, -11.773399, -1.6968, -11.890599, 11.9484, 3.0916, -11.890599, -11.773399, 3.0916, -11.890599, -11.773399, -1.6968, -6.0048, -11.773399, -1.6968, -11.890599, -11.773399, 3.0916, -11.890599, -11.773399, -1.6968, -6.0048, -11.773399, 3.0916, -11.890599, -11.773399, 3.0916, -6.0048, -11.773399, 3.0916, -6.0048, -32.7795, -1.6968, -6.0048, -11.773399, -1.6968, -6.0048, -11.773399, 3.0916, -6.0048, -32.7795, 3.0916, -6.0048, -32.7795, -1.6968, -6.0048, -32.7795, -1.6968, 5.421, -32.7795, -1.6968, -6.0048, -32.7795, 3.0916, -6.0048, -32.7795, -1.6968, 5.421, -32.7795, 3.0916, -6.0048, -32.7795, 3.0916, 5.421, -11.773399, -1.6968, 5.421, -32.7795, -1.6968, 5.421, -32.7795, 3.0916, 5.421, -11.773399, -1.6968, 5.421, -32.7795, 3.0916, 5.421, -11.773399, 3.0916, 5.421, -11.773399, -1.6968, 11.8313, -11.773399, -1.6968, 5.421, -11.773399, 3.0916, 5.421, -11.773399, -1.6968, 11.8313, -11.773399, 3.0916, 5.421, -11.773399, 3.0916, 11.8313, 11.9484, -1.6968, -11.890599, 11.9484, -1.6968, -6.0048, 11.9484, 3.0916, -6.0048, -11.773399, -1.6968, -11.890599, 11.9484, -1.6968, -6.0048, 11.9484, -1.6968, -11.890599, 11.9484, -1.6968, -6.0048, 11.9484, 3.0916, 5.421, 11.9484, 3.0916, -6.0048, -11.773399, -1.6968, -11.890599, -11.773399, -1.6968, -6.0048, 11.9484, -1.6968, -6.0048, 11.9484, -1.6968, -6.0048, 11.9484, -1.6968, 5.421, 11.9484, 3.0916, 5.421, -11.773399, -1.6968, -6.0048, 11.9484, -1.6968, 5.421, 11.9484, -1.6968, -6.0048, 11.9484, -1.6968, 5.421, 11.9484, 3.0916, 11.8313, 11.9484, 3.0916, 5.421, -11.773399, -1.6968, -6.0048, -32.7795, -1.6968, -6.0048, -32.7795, -1.6968, 5.421, -11.773399, -1.6968, -6.0048, -32.7795, -1.6968, 5.421, -11.773399, -1.6968, 5.421, -11.773399, -1.6968, -6.0048, -11.773399, -1.6968, 5.421, 11.9484, -1.6968, 5.421, -11.773399, -1.6968, 5.421, 11.9484, -1.6968, 11.8313, 11.9484, -1.6968, 5.421, 11.9484, -1.6968, 5.421, 11.9484, -1.6968, 11.8313, 11.9484, 3.0916, 11.8313, -11.773399, -1.6968, 5.421, -11.773399, -1.6968, 11.8313, 11.9484, -1.6968, 11.8313, 11.9484, -1.6968, 11.8313, -11.773399, 3.0916, 11.8313, 11.9484, 3.0916, 11.8313, 11.9484, -1.6968, 11.8313, -11.773399, -1.6968, 11.8313, -11.773399, 3.0916, 11.8313)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2iq80"]
+data = PackedVector3Array(11.9484, 3.0916, -11.890599, -11.773399, 3.0916, 11.8313, -11.773399, 3.0916, -11.890599, 11.9484, 3.0916, -11.890599, 11.9484, 3.0916, 11.8313, -11.773399, 3.0916, 11.8313, 11.9484, -1.6968, 11.8313, -11.773399, 3.0916, 11.8313, 11.9484, 3.0916, 11.8313, 11.9484, -1.6968, 11.8313, -11.773399, -1.6968, 11.8313, -11.773399, 3.0916, 11.8313, -11.773399, -1.6968, 11.8313, -11.773399, 3.0916, -11.890599, -11.773399, 3.0916, 11.8313, -11.773399, -1.6968, 11.8313, -11.773399, -1.6968, -11.890599, -11.773399, 3.0916, -11.890599, -11.773399, -1.6968, -11.890599, 11.9484, -1.6968, 11.8313, 11.9484, -1.6968, -11.890599, -11.773399, -1.6968, -11.890599, -11.773399, -1.6968, 11.8313, 11.9484, -1.6968, 11.8313, 11.9484, -1.6968, -11.890599, 11.9484, 3.0916, 11.8313, 11.9484, 3.0916, -11.890599, 11.9484, -1.6968, -11.890599, 11.9484, -1.6968, 11.8313, 11.9484, 3.0916, 11.8313, -11.773399, -1.6968, -11.890599, 11.9484, 3.0916, -11.890599, -11.773399, 3.0916, -11.890599, -11.773399, -1.6968, -11.890599, 11.9484, -1.6968, -11.890599, 11.9484, 3.0916, -11.890599)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_357j6"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.85490197, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fym7b"]
+albedo_color = Color(0.8980392, 1, 1, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_kpevs"]
+data = PackedVector3Array(-0.6602, -0.62009996, 0.7266, -1, -0.62009996, 1, -1, -0.62009996, 0.7266, -0.6602, -0.62009996, 0.7266, -0.6602, -0.62009996, 1, -1, -0.62009996, 1, -0.6602, -0.62009996, -0.77309996, -0.6602, -0.62009996, 0.7266, -1, -0.62009996, 0.7266, -0.6602, -0.62009996, -0.77309996, -1, -0.62009996, 0.7266, -1, -0.62009996, -0.77309996, -0.6602, -0.62009996, -1, -0.6602, -0.62009996, -0.77309996, -1, -0.62009996, -0.77309996, -0.6602, -0.62009996, -1, -1, -0.62009996, -0.77309996, -1, -0.62009996, -1, 0.7502, -0.62009996, -1, -0.6602, -0.62009996, -0.77309996, -0.6602, -0.62009996, -1, 0.7502, -0.62009996, -1, 0.7502, -0.62009996, -0.77309996, -0.6602, -0.62009996, -0.77309996, 0.7502, -0.62009996, -0.77309996, -0.6602, -0.62009996, 0.7266, -0.6602, -0.62009996, -0.77309996, 1, -0.62009996, -1, 0.7502, -0.62009996, -0.77309996, 0.7502, -0.62009996, -1, 1, -0.62009996, -1, 1, -0.62009996, -0.77309996, 0.7502, -0.62009996, -0.77309996, 0.7502, -0.62009996, -0.77309996, 0.7502, -0.62009996, 0.7266, -0.6602, -0.62009996, 0.7266, 1, -0.62009996, -0.77309996, 0.7502, -0.62009996, 0.7266, 0.7502, -0.62009996, -0.77309996, 0.7502, -0.62009996, 0.7266, -0.6602, -0.62009996, 1, -0.6602, -0.62009996, 0.7266, 1, -0.62009996, -0.77309996, 1, -0.62009996, 0.7266, 0.7502, -0.62009996, 0.7266, 0.7502, -0.62009996, 0.7266, 0.7502, -0.62009996, 1, -0.6602, -0.62009996, 1, 1, -0.62009996, 0.7266, 0.7502, -0.62009996, 1, 0.7502, -0.62009996, 0.7266, 1, -0.62009996, 0.7266, 1, -0.62009996, 1, 0.7502, -0.62009996, 1, -0.6602, -1, 1, -1, -0.62009996, 1, -0.6602, -0.62009996, 1, -0.6602, -1, 1, -1, -1, 1, -1, -0.62009996, 1, -0.6602, -1, 1, -1, -1.8154, 1, -1, -1, 1, -0.6602, -1, 1, -0.6602, -1.8154, 1, -1, -1.8154, 1, 0.7502, -1, 1, -0.6602, -1, 1, -0.6602, -0.62009996, 1, 0.7502, -1, 1, -0.6602, -0.62009996, 1, 0.7502, -0.62009996, 1, 1, -1, 1, 0.7502, -1, 1, 0.7502, -0.62009996, 1, 1, -1, 1, 0.7502, -0.62009996, 1, 1, -0.62009996, 1, 1, -1, 1, 0.7502, -1.8154, 1, 0.7502, -1, 1, 1, -1, 1, 1, -1.8154, 1, 0.7502, -1.8154, 1, -1, -1, -0.77309996, -1, -0.62009996, -1, -1, -0.62009996, -0.77309996, -1, -1, -0.77309996, -1, -1, -1, -1, -0.62009996, -1, -1, -1, -0.77309996, -1, -1.8154, -1, -1, -1, -1, -1, -1, -0.77309996, -1, -1.8154, -0.77309996, -1, -1.8154, -1, -1, -1, 0.7266, -1, -1, -0.77309996, -1, -0.62009996, -0.77309996, -1, -1, 0.7266, -1, -0.62009996, -0.77309996, -1, -0.62009996, 0.7266, -1, -1, 1, -1, -1, 0.7266, -1, -0.62009996, 0.7266, -1, -1, 1, -1, -0.62009996, 0.7266, -1, -0.62009996, 1, -1, -1, 1, -1, -1.8154, 0.7266, -1, -1, 0.7266, -1, -1, 1, -1, -1.8154, 1, -1, -1.8154, 0.7266, -0.6602, -1, 0.7266, -0.6602, -1.8154, 1, -0.6602, -1, 1, -0.6602, -1, 0.7266, -0.6602, -1.8154, 0.7266, -0.6602, -1.8154, 1, 1, -1, 0.7266, 1, -0.62009996, 1, 1, -0.62009996, 0.7266, 1, -1, 0.7266, 1, -1, 1, 1, -0.62009996, 1, 1, -1, 0.7266, 1, -1.8154, 1, 1, -1, 1, 1, -1, 0.7266, 1, -1.8154, 0.7266, 1, -1.8154, 1, 1, -1, -0.77309996, 1, -1, 0.7266, 1, -0.62009996, 0.7266, 1, -1, -0.77309996, 1, -0.62009996, 0.7266, 1, -0.62009996, -0.77309996, 1, -1, -1, 1, -1, -0.77309996, 1, -0.62009996, -0.77309996, 1, -1, -1, 1, -0.62009996, -0.77309996, 1, -0.62009996, -1, 1, -1, -1, 1, -1.8154, -0.77309996, 1, -1, -0.77309996, 1, -1, -1, 1, -1.8154, -1, 1, -1.8154, -0.77309996, 0.7502, -1, -1, 1, -0.62009996, -1, 0.7502, -0.62009996, -1, 0.7502, -1, -1, 1, -1, -1, 1, -0.62009996, -1, 0.7502, -1, -1, 1, -1.8154, -1, 1, -1, -1, 0.7502, -1, -1, 0.7502, -1.8154, -1, 1, -1.8154, -1, -0.6602, -1, -1, 0.7502, -1, -1, 0.7502, -0.62009996, -1, -0.6602, -1, -1, 0.7502, -0.62009996, -1, -0.6602, -0.62009996, -1, -1, -1, -1, -0.6602, -1, -1, -0.6602, -0.62009996, -1, -1, -1, -1, -0.6602, -0.62009996, -1, -1, -0.62009996, -1, -1, -1, -1, -0.6602, -1.8154, -1, -0.6602, -1, -1, -1, -1, -1, -1, -1.8154, -1, -0.6602, -1.8154, -1, 0.7502, -1, -0.77309996, 1, -1, 0.7266, 1, -1, -0.77309996, 0.7502, -1, -0.77309996, 0.7502, -1, 0.7266, 1, -1, 0.7266, -0.6602, -1, -1, 0.7502, -1, -0.77309996, 0.7502, -1, -1, -0.6602, -1, -1, -0.6602, -1, -0.77309996, 0.7502, -1, -0.77309996, -0.6602, -1, -0.77309996, 0.7502, -1, 0.7266, 0.7502, -1, -0.77309996, -0.6602, -1, -0.77309996, -0.6602, -1, 0.7266, 0.7502, -1, 0.7266, -0.6602, -1, 0.7266, 0.7502, -1, 1, 0.7502, -1, 0.7266, -0.6602, -1, 0.7266, -0.6602, -1, 1, 0.7502, -1, 1, -1, -1, -0.77309996, -0.6602, -1, 0.7266, -0.6602, -1, -0.77309996, -1, -1, -0.77309996, -1, -1, 0.7266, -0.6602, -1, 0.7266, 1, -1, -0.77309996, 0.7502, -1.8154, -0.77309996, 0.7502, -1, -0.77309996, 1, -1, -0.77309996, 1, -1.8154, -0.77309996, 0.7502, -1.8154, -0.77309996, 0.7502, -1, 0.7266, 1, -1.8154, 0.7266, 1, -1, 0.7266, 0.7502, -1, 0.7266, 0.7502, -1.8154, 0.7266, 1, -1.8154, 0.7266, 0.7502, -1.8154, 0.7266, 1, -1.8154, 1, 1, -1.8154, 0.7266, 0.7502, -1.8154, 0.7266, 0.7502, -1.8154, 1, 1, -1.8154, 1, -1, -1.8154, 0.7266, -0.6602, -1.8154, 1, -0.6602, -1.8154, 0.7266, -1, -1.8154, 0.7266, -1, -1.8154, 1, -0.6602, -1.8154, 1, -1, -1.8154, -1, -0.6602, -1.8154, -0.77309996, -0.6602, -1.8154, -1, -1, -1.8154, -1, -1, -1.8154, -0.77309996, -0.6602, -1.8154, -0.77309996, 0.7502, -1.8154, -1, 1, -1.8154, -0.77309996, 1, -1.8154, -1, 0.7502, -1.8154, -1, 0.7502, -1.8154, -0.77309996, 1, -1.8154, -0.77309996, 0.7502, -1, 1, 0.7502, -1.8154, 0.7266, 0.7502, -1, 0.7266, 0.7502, -1, 1, 0.7502, -1.8154, 1, 0.7502, -1.8154, 0.7266, -0.6602, -1, -1, -0.6602, -1.8154, -0.77309996, -0.6602, -1, -0.77309996, -0.6602, -1, -1, -0.6602, -1.8154, -1, -0.6602, -1.8154, -0.77309996, 0.7502, -1, -0.77309996, 0.7502, -1.8154, -1, 0.7502, -1, -1, 0.7502, -1, -0.77309996, 0.7502, -1.8154, -0.77309996, 0.7502, -1.8154, -1, -0.6602, -1, -0.77309996, -1, -1.8154, -0.77309996, -1, -1, -0.77309996, -0.6602, -1, -0.77309996, -0.6602, -1.8154, -0.77309996, -1, -1.8154, -0.77309996, -1, -1, 0.7266, -0.6602, -1.8154, 0.7266, -0.6602, -1, 0.7266, -1, -1, 0.7266, -1, -1.8154, 0.7266, -0.6602, -1.8154, 0.7266, -0.6602, -0.62009996, 2.7192, -1, -0.62009996, 2.9926, -1, -0.62009996, 2.7192, -0.6602, -0.62009996, 2.7192, -0.6602, -0.62009996, 2.9926, -1, -0.62009996, 2.9926, -0.6602, -0.62009996, 1.2195, -0.6602, -0.62009996, 2.7192, -1, -0.62009996, 2.7192, -0.6602, -0.62009996, 1.2195, -1, -0.62009996, 2.7192, -1, -0.62009996, 1.2195, -0.6602, -0.62009996, 0.99259996, -0.6602, -0.62009996, 1.2195, -1, -0.62009996, 1.2195, -0.6602, -0.62009996, 0.99259996, -1, -0.62009996, 1.2195, -1, -0.62009996, 0.99259996, 0.7502, -0.62009996, 0.99259996, -0.6602, -0.62009996, 1.2195, -0.6602, -0.62009996, 0.99259996, 0.7502, -0.62009996, 0.99259996, 0.7502, -0.62009996, 1.2195, -0.6602, -0.62009996, 1.2195, 0.7502, -0.62009996, 1.2195, -0.6602, -0.62009996, 2.7192, -0.6602, -0.62009996, 1.2195, 1, -0.62009996, 0.99259996, 0.7502, -0.62009996, 1.2195, 0.7502, -0.62009996, 0.99259996, 1, -0.62009996, 0.99259996, 1, -0.62009996, 1.2195, 0.7502, -0.62009996, 1.2195, 0.7502, -0.62009996, 1.2195, 0.7502, -0.62009996, 2.7192, -0.6602, -0.62009996, 2.7192, 1, -0.62009996, 1.2195, 0.7502, -0.62009996, 2.7192, 0.7502, -0.62009996, 1.2195, 0.7502, -0.62009996, 2.7192, -0.6602, -0.62009996, 2.9926, -0.6602, -0.62009996, 2.7192, 1, -0.62009996, 1.2195, 1, -0.62009996, 2.7192, 0.7502, -0.62009996, 2.7192, 0.7502, -0.62009996, 2.7192, 0.7502, -0.62009996, 2.9926, -0.6602, -0.62009996, 2.9926, 1, -0.62009996, 2.7192, 0.7502, -0.62009996, 2.9926, 0.7502, -0.62009996, 2.7192, 1, -0.62009996, 2.7192, 1, -0.62009996, 2.9926, 0.7502, -0.62009996, 2.9926, -0.6602, -1, 2.9926, -1, -0.62009996, 2.9926, -0.6602, -0.62009996, 2.9926, -0.6602, -1, 2.9926, -1, -1, 2.9926, -1, -0.62009996, 2.9926, -0.6602, -1, 2.9926, -1, -1.8154, 2.9926, -1, -1, 2.9926, -0.6602, -1, 2.9926, -0.6602, -1.8154, 2.9926, -1, -1.8154, 2.9926, 0.7502, -1, 2.9926, -0.6602, -1, 2.9926, -0.6602, -0.62009996, 2.9926, 0.7502, -1, 2.9926, -0.6602, -0.62009996, 2.9926, 0.7502, -0.62009996, 2.9926, 1, -1, 2.9926, 0.7502, -1, 2.9926, 0.7502, -0.62009996, 2.9926, 1, -1, 2.9926, 0.7502, -0.62009996, 2.9926, 1, -0.62009996, 2.9926, 1, -1, 2.9926, 0.7502, -1.8154, 2.9926, 0.7502, -1, 2.9926, 1, -1, 2.9926, 1, -1.8154, 2.9926, 0.7502, -1.8154, 2.9926, -1, -1, 1.2195, -1, -0.62009996, 0.99259996, -1, -0.62009996, 1.2195, -1, -1, 1.2195, -1, -1, 0.99259996, -1, -0.62009996, 0.99259996, -1, -1, 1.2195, -1, -1.8154, 0.99259996, -1, -1, 0.99259996, -1, -1, 1.2195, -1, -1.8154, 1.2195, -1, -1.8154, 0.99259996, -1, -1, 2.7192, -1, -1, 1.2195, -1, -0.62009996, 1.2195, -1, -1, 2.7192, -1, -0.62009996, 1.2195, -1, -0.62009996, 2.7192, -1, -1, 2.9926, -1, -1, 2.7192, -1, -0.62009996, 2.7192, -1, -1, 2.9926, -1, -0.62009996, 2.7192, -1, -0.62009996, 2.9926, -1, -1, 2.9926, -1, -1.8154, 2.7192, -1, -1, 2.7192, -1, -1, 2.9926, -1, -1.8154, 2.9926, -1, -1.8154, 2.7192, -0.6602, -1, 2.7192, -0.6602, -1.8154, 2.9926, -0.6602, -1, 2.9926, -0.6602, -1, 2.7192, -0.6602, -1.8154, 2.7192, -0.6602, -1.8154, 2.9926, 1, -1, 2.7192, 1, -0.62009996, 2.9926, 1, -0.62009996, 2.7192, 1, -1, 2.7192, 1, -1, 2.9926, 1, -0.62009996, 2.9926, 1, -1, 2.7192, 1, -1.8154, 2.9926, 1, -1, 2.9926, 1, -1, 2.7192, 1, -1.8154, 2.7192, 1, -1.8154, 2.9926, 1, -1, 1.2195, 1, -1, 2.7192, 1, -0.62009996, 2.7192, 1, -1, 1.2195, 1, -0.62009996, 2.7192, 1, -0.62009996, 1.2195, 1, -1, 0.99259996, 1, -1, 1.2195, 1, -0.62009996, 1.2195, 1, -1, 0.99259996, 1, -0.62009996, 1.2195, 1, -0.62009996, 0.99259996, 1, -1, 0.99259996, 1, -1.8154, 1.2195, 1, -1, 1.2195, 1, -1, 0.99259996, 1, -1.8154, 0.99259996, 1, -1.8154, 1.2195, 0.7502, -1, 0.99259996, 1, -0.62009996, 0.99259996, 0.7502, -0.62009996, 0.99259996, 0.7502, -1, 0.99259996, 1, -1, 0.99259996, 1, -0.62009996, 0.99259996, 0.7502, -1, 0.99259996, 1, -1.8154, 0.99259996, 1, -1, 0.99259996, 0.7502, -1, 0.99259996, 0.7502, -1.8154, 0.99259996, 1, -1.8154, 0.99259996, -0.6602, -1, 0.99259996, 0.7502, -1, 0.99259996, 0.7502, -0.62009996, 0.99259996, -0.6602, -1, 0.99259996, 0.7502, -0.62009996, 0.99259996, -0.6602, -0.62009996, 0.99259996, -1, -1, 0.99259996, -0.6602, -1, 0.99259996, -0.6602, -0.62009996, 0.99259996, -1, -1, 0.99259996, -0.6602, -0.62009996, 0.99259996, -1, -0.62009996, 0.99259996, -1, -1, 0.99259996, -0.6602, -1.8154, 0.99259996, -0.6602, -1, 0.99259996, -1, -1, 0.99259996, -1, -1.8154, 0.99259996, -0.6602, -1.8154, 0.99259996, 0.7502, -1, 1.2195, 1, -1, 2.7192, 1, -1, 1.2195, 0.7502, -1, 1.2195, 0.7502, -1, 2.7192, 1, -1, 2.7192, -0.6602, -1, 0.99259996, 0.7502, -1, 1.2195, 0.7502, -1, 0.99259996, -0.6602, -1, 0.99259996, -0.6602, -1, 1.2195, 0.7502, -1, 1.2195, -0.6602, -1, 1.2195, 0.7502, -1, 2.7192, 0.7502, -1, 1.2195, -0.6602, -1, 1.2195, -0.6602, -1, 2.7192, 0.7502, -1, 2.7192, -0.6602, -1, 2.7192, 0.7502, -1, 2.9926, 0.7502, -1, 2.7192, -0.6602, -1, 2.7192, -0.6602, -1, 2.9926, 0.7502, -1, 2.9926, -1, -1, 1.2195, -0.6602, -1, 2.7192, -0.6602, -1, 1.2195, -1, -1, 1.2195, -1, -1, 2.7192, -0.6602, -1, 2.7192, 1, -1, 1.2195, 0.7502, -1.8154, 1.2195, 0.7502, -1, 1.2195, 1, -1, 1.2195, 1, -1.8154, 1.2195, 0.7502, -1.8154, 1.2195, 0.7502, -1, 2.7192, 1, -1.8154, 2.7192, 1, -1, 2.7192, 0.7502, -1, 2.7192, 0.7502, -1.8154, 2.7192, 1, -1.8154, 2.7192, 0.7502, -1.8154, 2.7192, 1, -1.8154, 2.9926, 1, -1.8154, 2.7192, 0.7502, -1.8154, 2.7192, 0.7502, -1.8154, 2.9926, 1, -1.8154, 2.9926, -1, -1.8154, 2.7192, -0.6602, -1.8154, 2.9926, -0.6602, -1.8154, 2.7192, -1, -1.8154, 2.7192, -1, -1.8154, 2.9926, -0.6602, -1.8154, 2.9926, -1, -1.8154, 0.99259996, -0.6602, -1.8154, 1.2195, -0.6602, -1.8154, 0.99259996, -1, -1.8154, 0.99259996, -1, -1.8154, 1.2195, -0.6602, -1.8154, 1.2195, 0.7502, -1.8154, 0.99259996, 1, -1.8154, 1.2195, 1, -1.8154, 0.99259996, 0.7502, -1.8154, 0.99259996, 0.7502, -1.8154, 1.2195, 1, -1.8154, 1.2195, 0.7502, -1, 2.9926, 0.7502, -1.8154, 2.7192, 0.7502, -1, 2.7192, 0.7502, -1, 2.9926, 0.7502, -1.8154, 2.9926, 0.7502, -1.8154, 2.7192, -0.6602, -1, 0.99259996, -0.6602, -1.8154, 1.2195, -0.6602, -1, 1.2195, -0.6602, -1, 0.99259996, -0.6602, -1.8154, 0.99259996, -0.6602, -1.8154, 1.2195, 0.7502, -1, 1.2195, 0.7502, -1.8154, 0.99259996, 0.7502, -1, 0.99259996, 0.7502, -1, 1.2195, 0.7502, -1.8154, 1.2195, 0.7502, -1.8154, 0.99259996, -0.6602, -1, 1.2195, -1, -1.8154, 1.2195, -1, -1, 1.2195, -0.6602, -1, 1.2195, -0.6602, -1.8154, 1.2195, -1, -1.8154, 1.2195, -1, -1, 2.7192, -0.6602, -1.8154, 2.7192, -0.6602, -1, 2.7192, -1, -1, 2.7192, -1, -1.8154, 2.7192, -0.6602, -1.8154, 2.7192)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x45kh"]
+albedo_color = Color(0, 0, 0, 1)
+
 [node name="Main2" type="Node3D" unique_id=1154245291]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1319171211]
-transform = Transform3D(-0.86563313, -0.4177696, 0.27594906, 0.026062274, 0.5128046, 0.85810965, -0.50000006, 0.75, -0.43301266, 38.2321, 398.0105, 130.50122)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1755339013]
-environment = SubResource("Environment_0wfyh")
+script = ExtResource("1_22qkm")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1079991752]
 transform = Transform3D(-0.78333986, 0.28411815, -0.55286133, -0.5403886, -0.75080955, 0.3798227, -0.307179, 0.59629023, 0.7416732, -97.39641, 336.25446, 114.95978)
@@ -56,47 +74,648 @@ script = ExtResource("1_ahpur")
 extra_cull_margin = 16000.0
 mesh = SubResource("QuadMesh_dither")
 
-[node name="Containment_Lab" parent="." unique_id=292035741 instance=ExtResource("3_dsalb")]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2110856578]
+transform = Transform3D(1, 0, 0, 0, -0.34530824, -0.9384893, 0, 0.9384893, -0.34530824, 320.84937, 734.2355, -99.76494)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1721986812]
+environment = SubResource("Environment_gocn2")
+
+[node name="Flask" type="RigidBody3D" parent="." unique_id=1342072685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.92746, 304.1026, 65.48942)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask" unique_id=104888576 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask/FlaskNew" index="0" unique_id=600977052]
+surface_material_override/0 = SubResource("StandardMaterial3D_hsrur")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask" unique_id=579154655]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Lab Floor" type="CSGBox3D" parent="." unique_id=826911489]
+transform = Transform3D(4.955105, 0, 0, 0, 1, 0, 0, 0, 7.0632777, -87.812096, 299.8697, 121.45485)
+use_collision = true
+size = Vector3(37.057617, 1, 27.31665)
+material = SubResource("StandardMaterial3D_pa6o6")
+
+[node name="Lab Floor2" type="CSGBox3D" parent="." unique_id=997869165]
+transform = Transform3D(9.987186, 0, 0, 0, 1, 0, 0, 0, 7.0632777, 555.13574, 314.09222, 121.45485)
+use_collision = true
+size = Vector3(37.057617, 1, 27.31665)
+material = SubResource("StandardMaterial3D_8sr63")
+
+[node name="Containment Lab" type="StaticBody3D" parent="." unique_id=1311787206]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 455.13928, 326.956, 139.9618)
 
-[node name="Main_Lab" parent="." unique_id=907265967 instance=ExtResource("4_iypmn")]
+[node name="Containment_Lab" parent="Containment Lab" unique_id=292035741 instance=ExtResource("3_dsalb")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Containment Lab" unique_id=1820755404]
+transform = Transform3D(5.28086, 0, -0.04978623, 0, -5.2810946, 0, 0.04978623, 0, 5.28086, 191.85632, 3.1955261, -2.0734863)
+shape = SubResource("ConcavePolygonShape3D_vllbc")
+
+[node name="Main Lab" type="StaticBody3D" parent="." unique_id=554089177]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.932053, 321.16794, 131.0403)
 
-[node name="BlackHoleSize1" parent="." unique_id=2070736605 instance=ExtResource("5_ll1a2")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -76.832794, 333.02026, 115.670654)
+[node name="Main_Lab" parent="Main Lab" unique_id=907265967 instance=ExtResource("4_iypmn")]
 
-[node name="Table_Medium_Lab" parent="." unique_id=801495523 instance=ExtResource("6_iypmn")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -190.95103, 331.1046, 196.71082)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Main Lab" unique_id=1686142296]
+transform = Transform3D(-6.900488, 0, 0, 0, -6.900488, 0, 0, 0, -6.900488, -63.129837, -0.16299438, -1.1470642)
+shape = SubResource("ConcavePolygonShape3D_2iq80")
 
-[node name="Flask_Small_Lab" parent="." unique_id=674583662 instance=ExtResource("7_ll1a2")]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -72.04512, 335.57745, 145.20917)
+[node name="Containment" type="CSGCylinder3D" parent="." unique_id=1480561670]
+transform = Transform3D(56.2275, 0, 0, 0, 56.2275, 0, 0, 0, 56.2275, 688.4286, 301.84955, 142.07565)
+use_collision = true
+height = 0.5731201
 
-[node name="Table_Medium_Lab2" parent="." unique_id=624623268 instance=ExtResource("6_iypmn")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -130.67152, 330.3396, 195.30832)
+[node name="Containment2" type="CSGCylinder3D" parent="." unique_id=345544720]
+transform = Transform3D(47.40898, 0, 0, 0, 47.40898, 0, 0, 0, 47.40898, 688.4286, 331.556, 142.07565)
+height = 0.5731201
+material = SubResource("StandardMaterial3D_357j6")
 
-[node name="Table_Medium_Lab3" parent="." unique_id=359781618 instance=ExtResource("6_iypmn")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -72.91018, 324.13168, 160.31245)
+[node name="Containment3" type="CSGCylinder3D" parent="." unique_id=941593333]
+transform = Transform3D(56.2275, 0, 0, 0, 56.2275, 0, 0, 0, 56.2275, 688.4286, 353.21426, 142.07565)
+use_collision = true
+height = 0.5731201
 
-[node name="Table_Large_Lab" parent="." unique_id=359099133 instance=ExtResource("8_iodom")]
-transform = Transform3D(-0.51953995, 0, -19.99325, 0, 20, 0, 19.99325, 0, -0.51953995, -42.717827, 332.26443, 222.12833)
+[node name="Flask2" type="RigidBody3D" parent="." unique_id=1491478828]
+transform = Transform3D(1, 0, 0, 0, -0.27378908, -0.9617898, 0, 0.9617898, -0.27378908, 642.27686, 315.3806, 113.14841)
+metadata/size = 1
+metadata/mass = 3
 
-[node name="Table_Large_Lab2" parent="." unique_id=225819463 instance=ExtResource("8_iodom")]
-transform = Transform3D(-0.1974771, 0, 19.999025, 0, 19.999998, 0, -19.999025, 0, -0.1974771, -102.25333, 335.06482, 120.01577)
+[node name="FlaskNew" parent="Flask2" unique_id=62394190 instance=ExtResource("3_53cgi")]
 
-[node name="Flask_Small_Lab2" parent="." unique_id=1241052387 instance=ExtResource("7_ll1a2")]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -119.54973, 335.42816, 194.60046)
+[node name="Cube" parent="Flask2/FlaskNew" index="0" unique_id=600977052]
+transform = Transform3D(0.48009774, 0.8436965, -0.2401719, -0.84369653, 0.51906985, 0.13690455, 0.24017191, 0.13690455, 0.9610279, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_fym7b")
 
-[node name="Flask_Small_Lab3" parent="Flask_Small_Lab2" unique_id=800475156 instance=ExtResource("7_ll1a2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.097693, 0.068745136, -1.2905993)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask2" unique_id=377712577]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
 
-[node name="Table_Large_Lab3" parent="." unique_id=36573178 instance=ExtResource("8_iodom")]
-transform = Transform3D(0.18369031, 0, -19.999157, 0, 20.000002, 0, 19.999157, 0, 0.18369031, -42.73169, 332.9537, 124.97794)
+[node name="Flask4" type="RigidBody3D" parent="." unique_id=1892800457]
+transform = Transform3D(0.7110151, 0.65186, 0.26369733, -0.29383853, -0.06526633, 0.9536243, 0.63883984, -0.7555257, 0.1451362, 686.3318, 315.3806, 184.8562)
+metadata/size = 1
+metadata/mass = 3
 
-[node name="Table_Medium_Lab4" parent="." unique_id=599834300 instance=ExtResource("6_iypmn")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -166.26865, 331.71152, 102.891014)
+[node name="FlaskNew" parent="Flask4" unique_id=871101395 instance=ExtResource("3_53cgi")]
 
-[node name="Flask_Small_Lab3" parent="." unique_id=1852413638 instance=ExtResource("7_ll1a2")]
-transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, -159.78189, 333.66357, 101.820335)
+[node name="Cube" parent="Flask4/FlaskNew" index="0" unique_id=600977052]
+transform = Transform3D(0.48009774, 0.8436965, -0.2401719, -0.84369653, 0.51906985, 0.13690455, 0.24017191, 0.13690455, 0.9610279, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_fym7b")
 
-[node name="Table_Large_Lab4" parent="." unique_id=290949944 instance=ExtResource("8_iodom")]
-transform = Transform3D(-0.31564683, 0, -19.997509, 0, 20, 0, 19.997509, 0, -0.31564683, -121.97573, 329.5815, 85.11705)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask4" unique_id=1160484028]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask5" type="RigidBody3D" parent="." unique_id=77232455]
+transform = Transform3D(-0.31008574, -0.9372015, -0.15968853, -0.2938386, -0.06526635, 0.95362455, -0.90416026, 0.3426279, -0.25514776, 552.6579, 315.3806, 148.81999)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask5" unique_id=882541653 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask5/FlaskNew" index="0" unique_id=600977052]
+transform = Transform3D(0.48009774, 0.8436965, -0.2401719, -0.84369653, 0.51906985, 0.13690455, 0.24017191, 0.13690455, 0.9610279, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_fym7b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask5" unique_id=549625176]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask6" type="RigidBody3D" parent="." unique_id=1917466176]
+transform = Transform3D(0.74935037, -0.63842946, 0.1757326, 0.59850526, 0.7665594, 0.23276219, -0.28331172, -0.06924352, 0.9565251, 488.91193, 316.12637, 119.52371)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask6" unique_id=1022026514 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask6/FlaskNew" index="0" unique_id=600977052]
+transform = Transform3D(0.48009774, 0.8436965, -0.2401719, -0.84369653, 0.51906985, 0.13690455, 0.24017191, 0.13690455, 0.9610279, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_fym7b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask6" unique_id=1257946538]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Table" type="StaticBody3D" parent="." unique_id=191106466]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.426849, 305.51294, 51.34748)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table" unique_id=1664895374 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table" unique_id=2145137231]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[node name="Table2" type="StaticBody3D" parent="." unique_id=1369065979]
+transform = Transform3D(-0.019225767, 0, -0.99981517, 0, 1, 0, 0.99981517, 0, -0.019225767, 608.77625, 317.66928, 86.84501)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table2" unique_id=352345532 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table2" unique_id=354627763]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[node name="Table3" type="StaticBody3D" parent="." unique_id=951538481]
+transform = Transform3D(-0.019225767, 0, -0.99981517, 0, 1, 0, 0.99981517, 0, -0.019225767, 608.77625, 317.66928, 187.55873)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table3" unique_id=595158410 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table3" unique_id=2102977206]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[node name="Table4" type="StaticBody3D" parent="." unique_id=1254125875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 634.04034, 317.66928, 141.70335)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table4" unique_id=1700973093 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table4" unique_id=1768615241]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[node name="Door" type="CSGBox3D" parent="." unique_id=797150494]
+transform = Transform3D(9.987186, 0, 0, 0, 1, 0, 0, 0, 0.5026139, 473.02747, 324.1356, 134.9678)
+size = Vector3(0.25, 21.086699, 27.31665)
+material = SubResource("StandardMaterial3D_x45kh")
+
+[node name="Door2" type="CSGBox3D" parent="." unique_id=1001495541]
+transform = Transform3D(9.987186, 0, 0, 0, 1, 0, 0, 0, 0.5026139, -4.969923, 308.74283, 134.9678)
+size = Vector3(0.25, 21.086699, 27.31665)
+material = SubResource("StandardMaterial3D_x45kh")
+
+[node name="Table5" type="StaticBody3D" parent="." unique_id=272043998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.913445, 304.51596, 70.97008)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table5" unique_id=444462127 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table5" unique_id=347036500]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[node name="Table6" type="StaticBody3D" parent="." unique_id=1559335156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.913445, 304.51596, 102.71897)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table6" unique_id=206903381 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table6" unique_id=1412748784]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[node name="Table7" type="StaticBody3D" parent="." unique_id=1866909644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.913445, 304.51596, 162.35757)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table7" unique_id=356071294 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table7" unique_id=1070220828]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[node name="Table8" type="StaticBody3D" parent="." unique_id=1785629412]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.913445, 304.51596, 192.1837)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table8" unique_id=1059816588 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table8" unique_id=1357497460]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[node name="Table9" type="StaticBody3D" parent="." unique_id=2023844224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.21652, 304.51596, 70.97008)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table9" unique_id=2049579161 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table9" unique_id=1242695084]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[node name="Table10" type="StaticBody3D" parent="." unique_id=304483481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.21652, 304.51596, 102.71897)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table10" unique_id=1065016319 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table10" unique_id=988757892]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[node name="Table11" type="StaticBody3D" parent="." unique_id=256418646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.21652, 304.51596, 162.35757)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table11" unique_id=1983611169 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table11" unique_id=484311343]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[node name="Table12" type="StaticBody3D" parent="." unique_id=244534041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.21652, 304.51596, 192.1837)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table12" unique_id=1648828217 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table12" unique_id=128976531]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[node name="Door3" type="CSGBox3D" parent="." unique_id=1361768646]
+transform = Transform3D(9.987186, 0, 0, 0, 1, 0, 0, 0, 0.5026139, -170.65208, 308.74283, 134.9678)
+size = Vector3(0.25, 21.086699, 27.31665)
+material = SubResource("StandardMaterial3D_x45kh")
+
+[node name="Flask3" type="RigidBody3D" parent="." unique_id=1652390156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.99959, 312.7297, 65.48942)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask3" unique_id=141327604 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask3/FlaskNew" index="0" unique_id=600977052]
+surface_material_override/0 = SubResource("StandardMaterial3D_hsrur")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask3" unique_id=683083654]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask7" type="RigidBody3D" parent="." unique_id=866011617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.05141, 312.7297, 81.06582)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask7" unique_id=1161601870 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask7/FlaskNew" index="0" unique_id=600977052]
+surface_material_override/0 = SubResource("StandardMaterial3D_hsrur")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask7" unique_id=1907839654]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask8" type="RigidBody3D" parent="." unique_id=24859159]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.26243, 312.7297, 85.282036)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask8" unique_id=81050448 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask8/FlaskNew" index="0" unique_id=600977052]
+surface_material_override/0 = SubResource("StandardMaterial3D_hsrur")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask8" unique_id=92432755]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask9" type="RigidBody3D" parent="." unique_id=485456458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.50859, 312.7297, 112.97619)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask9" unique_id=627802612 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask9/FlaskNew" index="0" unique_id=600977052]
+surface_material_override/0 = SubResource("StandardMaterial3D_hsrur")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask9" unique_id=579807542]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask10" type="RigidBody3D" parent="." unique_id=1241284469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.66882, 312.7297, 65.48942)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask10" unique_id=1516800776 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask10/FlaskNew" index="0" unique_id=600977052]
+surface_material_override/0 = SubResource("StandardMaterial3D_hsrur")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask10" unique_id=667483439]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask11" type="RigidBody3D" parent="." unique_id=693041651]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -163.7917, 312.7297, 106.33757)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask11" unique_id=1478111266 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask11/FlaskNew" index="0" unique_id=600977052]
+surface_material_override/0 = SubResource("StandardMaterial3D_hsrur")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask11" unique_id=644884952]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask12" type="RigidBody3D" parent="." unique_id=1776340109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77.62293, 312.7297, 181.22406)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask12" unique_id=1501166752 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask12/FlaskNew" index="0" unique_id=600977052]
+surface_material_override/0 = SubResource("StandardMaterial3D_hsrur")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask12" unique_id=194870580]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask13" type="RigidBody3D" parent="." unique_id=159663199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.5528, 312.7297, 195.93391)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask13" unique_id=1017700445 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask13/FlaskNew" index="0" unique_id=600977052]
+surface_material_override/0 = SubResource("StandardMaterial3D_hsrur")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask13" unique_id=1007179141]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask14" type="RigidBody3D" parent="." unique_id=1618060445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157.31989, 312.7297, 193.58583)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask14" unique_id=1043314191 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask14/FlaskNew" index="0" unique_id=600977052]
+surface_material_override/0 = SubResource("StandardMaterial3D_hsrur")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask14" unique_id=1849156409]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask15" type="RigidBody3D" parent="." unique_id=1286796408]
+transform = Transform3D(0.72561866, 0.66180474, -0.18839346, 0, -0.27378908, -0.9617898, -0.68809706, 0.6978926, -0.19866647, -99.95155, 301.1383, 86.730835)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask15" unique_id=441661046 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask15/FlaskNew" index="0" unique_id=600977052]
+transform = Transform3D(0.48009774, 0.8436965, -0.2401719, -0.84369653, 0.51906985, 0.13690455, 0.24017191, 0.13690455, 0.9610279, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_fym7b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask15" unique_id=1975052203]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask16" type="RigidBody3D" parent="." unique_id=743289944]
+transform = Transform3D(0.95550966, -0.04687321, 0.2912115, -0.2938386, -0.06526635, 0.95362455, -0.025693297, -0.99676657, -0.07613581, -18.642548, 301.1383, 108.44928)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask16" unique_id=413268731 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask16/FlaskNew" index="0" unique_id=600977052]
+transform = Transform3D(0.48009774, 0.8436965, -0.2401719, -0.84369653, 0.51906985, 0.13690455, 0.24017191, 0.13690455, 0.9610279, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_fym7b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask16" unique_id=1089439133]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask17" type="RigidBody3D" parent="." unique_id=1436946798]
+transform = Transform3D(-0.847154, -0.44428965, -0.29143938, -0.29383856, -0.06526635, 0.9536245, -0.4427064, 0.8935027, -0.07525876, -140.43523, 301.1383, 174.28134)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask17" unique_id=1381321669 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask17/FlaskNew" index="0" unique_id=600977052]
+transform = Transform3D(0.48009774, 0.8436965, -0.2401719, -0.84369653, 0.51906985, 0.13690455, 0.24017191, 0.13690455, 0.9610279, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_fym7b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask17" unique_id=505002086]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask18" type="RigidBody3D" parent="." unique_id=1478095046]
+transform = Transform3D(0.34879664, -0.5109026, 0.7856969, 0.5985053, 0.76655936, 0.23276219, -0.72120196, 0.38905704, 0.5731513, -57.101097, 301.88406, 196.88684)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask18" unique_id=1430630598 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask18/FlaskNew" index="0" unique_id=600977052]
+transform = Transform3D(0.48009774, 0.8436965, -0.2401719, -0.84369653, 0.51906985, 0.13690455, 0.24017191, 0.13690455, 0.9610279, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_fym7b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask18" unique_id=1279979364]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask19" type="RigidBody3D" parent="." unique_id=1135650619]
+transform = Transform3D(0.23229402, 0.112006575, -0.96617496, -0.47140107, 0.88184905, -0.011106536, 0.85077643, 0.45803607, 0.2576484, -162.51022, 301.88406, 122.40907)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask19" unique_id=282854774 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask19/FlaskNew" index="0" unique_id=600977052]
+transform = Transform3D(0.48009774, 0.8436965, -0.2401719, -0.84369653, 0.51906985, 0.13690455, 0.24017191, 0.13690455, 0.9610279, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_fym7b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask19" unique_id=44908449]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask20" type="RigidBody3D" parent="." unique_id=736583948]
+transform = Transform3D(0.8204682, 0.44313857, 0.36119285, -0.471401, 0.88184893, -0.011106532, -0.32343915, -0.16115418, 0.93242496, -71.59568, 301.88406, 122.40907)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask20" unique_id=1220640995 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask20/FlaskNew" index="0" unique_id=600977052]
+transform = Transform3D(0.48009774, 0.8436965, -0.2401719, -0.84369653, 0.51906985, 0.13690455, 0.24017191, 0.13690455, 0.9610279, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_fym7b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask20" unique_id=897994767]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask21" type="RigidBody3D" parent="." unique_id=1505719723]
+transform = Transform3D(0.116933316, 0.074980326, 0.9903053, 0.94612217, 0.29476714, -0.1340342, -0.30195916, 0.9526229, -0.036472492, -72.46421, 301.88406, 92.208176)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask21" unique_id=1589635934 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask21/FlaskNew" index="0" unique_id=600977052]
+transform = Transform3D(0.48009774, 0.8436965, -0.2401719, -0.84369653, 0.51906985, 0.13690455, 0.24017191, 0.13690455, 0.9610279, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_fym7b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask21" unique_id=1012086565]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Flask22" type="RigidBody3D" parent="." unique_id=251005349]
+transform = Transform3D(-0.9149696, -0.30034202, -0.26949075, -0.26767713, -0.04800405, 0.96231204, -0.30195916, 0.9526229, -0.036472484, -83.12762, 301.88406, 96.16197)
+metadata/size = 1
+metadata/mass = 3
+
+[node name="FlaskNew" parent="Flask22" unique_id=1593259036 instance=ExtResource("3_53cgi")]
+
+[node name="Cube" parent="Flask22/FlaskNew" index="0" unique_id=600977052]
+transform = Transform3D(0.48009774, 0.8436965, -0.2401719, -0.84369653, 0.51906985, 0.13690455, 0.24017191, 0.13690455, 0.9610279, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_fym7b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flask22" unique_id=643370731]
+transform = Transform3D(1.6863676, 0, 0, 0, 3.8728917, 0, 0, 0, 2.0258718, 0, 0.3746643, 0)
+shape = SubResource("BoxShape3D_8sr63")
+
+[node name="Table13" type="StaticBody3D" parent="." unique_id=1532675247]
+transform = Transform3D(-0.011965033, 0, 0.9999284, 0, 1, 0, -0.9999284, 0, -0.011965033, -97.630226, 304.51596, 202.83609)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table13" unique_id=1724694845 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table13" unique_id=1112546458]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[node name="Table14" type="StaticBody3D" parent="." unique_id=1791746265]
+transform = Transform3D(-0.011965033, 0, 0.9999284, 0, 1, 0, -0.9999284, 0, -0.011965033, -131.3942, 304.51596, 202.83609)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table14" unique_id=2071722448 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table14" unique_id=1019711194]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[node name="Table15" type="StaticBody3D" parent="." unique_id=653408710]
+transform = Transform3D(-0.011965033, 0, 0.9999284, 0, 1, 0, -0.9999284, 0, -0.011965033, -97.630226, 304.51596, 66.990974)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table15" unique_id=70555728 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table15" unique_id=537188813]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[node name="Table16" type="StaticBody3D" parent="." unique_id=600144734]
+transform = Transform3D(-0.011965033, 0, 0.9999284, 0, 1, 0, -0.9999284, 0, -0.011965033, -131.3942, 304.51596, 66.990974)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table16" unique_id=1388575051 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table16" unique_id=486184538]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[node name="Table17" type="StaticBody3D" parent="." unique_id=551183779]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.726221, 304.51596, 70.97008)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table17" unique_id=780539983 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table17" unique_id=1663730313]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[node name="Table18" type="StaticBody3D" parent="." unique_id=1041465873]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.726221, 304.51596, 192.1837)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Table_Large_Lab" parent="Table18" unique_id=1563616924 instance=ExtResource("6_22qkm")]
+transform = Transform3D(15.796398, 0, 0, 0, 19.422453, 0, 0, 0, 15.796398, 20.941284, -2.993164, 11.5723915)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table18" unique_id=1708553904]
+transform = Transform3D(8.067835, 0, 0, 0, 9.919803, 0, 0, 0, 8.067835, 2.5841675, 13.386261, -7.710552)
+shape = SubResource("ConcavePolygonShape3D_kpevs")
+
+[editable path="Flask/FlaskNew"]
+[editable path="Containment Lab/Containment_Lab"]
+[editable path="Main Lab/Main_Lab"]
+[editable path="Flask2/FlaskNew"]
+[editable path="Flask4/FlaskNew"]
+[editable path="Flask5/FlaskNew"]
+[editable path="Flask6/FlaskNew"]
+[editable path="Table/Table_Large_Lab"]
+[editable path="Table2/Table_Large_Lab"]
+[editable path="Table3/Table_Large_Lab"]
+[editable path="Table4/Table_Large_Lab"]
+[editable path="Table5/Table_Large_Lab"]
+[editable path="Table6/Table_Large_Lab"]
+[editable path="Table7/Table_Large_Lab"]
+[editable path="Table8/Table_Large_Lab"]
+[editable path="Table9/Table_Large_Lab"]
+[editable path="Table10/Table_Large_Lab"]
+[editable path="Table11/Table_Large_Lab"]
+[editable path="Table12/Table_Large_Lab"]
+[editable path="Flask3/FlaskNew"]
+[editable path="Flask7/FlaskNew"]
+[editable path="Flask8/FlaskNew"]
+[editable path="Flask9/FlaskNew"]
+[editable path="Flask10/FlaskNew"]
+[editable path="Flask11/FlaskNew"]
+[editable path="Flask12/FlaskNew"]
+[editable path="Flask13/FlaskNew"]
+[editable path="Flask14/FlaskNew"]
+[editable path="Flask15/FlaskNew"]
+[editable path="Flask16/FlaskNew"]
+[editable path="Flask17/FlaskNew"]
+[editable path="Flask18/FlaskNew"]
+[editable path="Flask19/FlaskNew"]
+[editable path="Flask20/FlaskNew"]
+[editable path="Flask21/FlaskNew"]
+[editable path="Flask22/FlaskNew"]
+[editable path="Table13/Table_Large_Lab"]
+[editable path="Table14/Table_Large_Lab"]
+[editable path="Table15/Table_Large_Lab"]
+[editable path="Table16/Table_Large_Lab"]
+[editable path="Table17/Table_Large_Lab"]
+[editable path="Table18/Table_Large_Lab"]
