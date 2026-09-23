@@ -13,8 +13,10 @@ public partial class CharacterController : CharacterBody3D
 	[Export]int[] sizeScalar;
 	[Export]Node3D collision;
 	[Export]Node3D model;
+	[Export] SceneLoader sceneLoader;
 	public override void _Ready()
 	{
+		sceneLoader = GetTree().CurrentScene as SceneLoader;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -68,6 +70,7 @@ public partial class CharacterController : CharacterBody3D
 			if(mass >= massGoal[size - 1])
 			{
 				size++;
+				sceneLoader.TryWin(size);
 				Resize();
 			}
 		}
