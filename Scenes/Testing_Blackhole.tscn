@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://hfuqjcey1jjr"]
 
-[ext_resource type="Script" uid="uid://b5ouvvswqvwek" path="res://Scripts/CharacterController.cs" id="2_a0tk4"]
-[ext_resource type="PackedScene" uid="uid://bs5547r7nr6hn" path="res://3D-Art/cube.fbx" id="2_noarx"]
-[ext_resource type="PackedScene" uid="uid://8kak2fl8mni7" path="res://3D-Art/houseModel_Large_City.glb" id="3_jyqrj"]
+[ext_resource type="Script" uid="uid://b5ouvvswqvwek" path="res://Scripts/CharacterController.cs" id="1_km32k"]
+[ext_resource type="PackedScene" uid="uid://bs5547r7nr6hn" path="res://3D-Art/cube.fbx" id="2_336fg"]
+[ext_resource type="PackedScene" uid="uid://8kak2fl8mni7" path="res://3D-Art/houseModel_Large_City.glb" id="3_mimid"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3xsyb"]
 size = Vector3(1, 0.98828125, 1.2634277)
@@ -22,7 +22,7 @@ data = PackedVector3Array(-1, 0.99259996, 1, -1, 1, -1, -1, 1, 1, -1, 0.99259996
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 96.02898, 0)
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=2054155959 node_paths=PackedStringArray("collision", "model")]
-script = ExtResource("2_a0tk4")
+script = ExtResource("1_km32k")
 massGoal = PackedInt32Array(1, 3, 5)
 sizeScalar = PackedInt32Array(1, 2, 3)
 collision = NodePath("CollisionShape3D")
@@ -32,7 +32,7 @@ model = NodePath("cube")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52734375, -0.13171387)
 shape = SubResource("BoxShape3D_3xsyb")
 
-[node name="cube" parent="CharacterBody3D" unique_id=884895613 instance=ExtResource("2_noarx")]
+[node name="cube" parent="CharacterBody3D" unique_id=884895613 instance=ExtResource("2_336fg")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="." unique_id=1443702819]
@@ -45,7 +45,7 @@ metadata/mass = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028015137, 0.26202393, 0.06616211)
 shape = SubResource("BoxShape3D_d84jn")
 
-[node name="cube" parent="RigidBody3D2" unique_id=810603139 instance=ExtResource("2_noarx")]
+[node name="cube" parent="RigidBody3D2" unique_id=810603139 instance=ExtResource("2_336fg")]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1573664672]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.904114, 0, 0)
@@ -57,7 +57,7 @@ metadata/mass = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028015137, 0.26202393, 0.06616211)
 shape = SubResource("BoxShape3D_d84jn")
 
-[node name="cube" parent="RigidBody3D" unique_id=1260884376 instance=ExtResource("2_noarx")]
+[node name="cube" parent="RigidBody3D" unique_id=1260884376 instance=ExtResource("2_336fg")]
 
 [node name="RigidBody3D3" type="RigidBody3D" parent="." unique_id=630564043]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.616455, 0, 0)
@@ -69,7 +69,7 @@ metadata/mass = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028015137, 0.26202393, 0.06616211)
 shape = SubResource("BoxShape3D_d84jn")
 
-[node name="cube" parent="RigidBody3D3" unique_id=1026107508 instance=ExtResource("2_noarx")]
+[node name="cube" parent="RigidBody3D3" unique_id=1026107508 instance=ExtResource("2_336fg")]
 
 [node name="RigidBody3D4" type="RigidBody3D" parent="." unique_id=1863639834]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.712341, 0, 0)
@@ -81,14 +81,14 @@ metadata/mass = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028015137, 0.26202393, 0.06616211)
 shape = SubResource("BoxShape3D_d84jn")
 
-[node name="cube" parent="RigidBody3D4" unique_id=1553203770 instance=ExtResource("2_noarx")]
+[node name="cube" parent="RigidBody3D4" unique_id=1553203770 instance=ExtResource("2_336fg")]
 
 [node name="House" type="StaticBody3D" parent="." unique_id=2053493402]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 345.45764, 0, -244.11667)
 metadata/size = 0
 metadata/mass = 5
 
-[node name="houseModel_Large_City" parent="House" unique_id=805573093 instance=ExtResource("3_jyqrj")]
+[node name="houseModel_Large_City" parent="House" unique_id=805573093 instance=ExtResource("3_mimid")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -350.5961, -0.6517234, 193.59201)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="House" unique_id=557005999]

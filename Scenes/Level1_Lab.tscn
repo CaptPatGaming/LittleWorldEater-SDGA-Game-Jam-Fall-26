@@ -1,13 +1,13 @@
-[gd_scene format=3 uid="uid://b8x864qysu8aa"]
+[gd_scene format=3 uid="uid://clfe68p0ooe0x"]
 
-[ext_resource type="Script" uid="uid://cyggjpmx3nrfs" path="res://scripts/camera.gd" id="1_ahpur"]
-[ext_resource type="Shader" uid="uid://d3yg7r1gtoshf" path="res://scenes/dither.gdshader" id="2_43fsd"]
-[ext_resource type="PackedScene" uid="uid://bm86frupxf5yl" path="res://assets/Containment_Lab.glb" id="3_dsalb"]
-[ext_resource type="PackedScene" uid="uid://dgqlem38pyovh" path="res://assets/Main_Lab.glb" id="4_iypmn"]
-[ext_resource type="PackedScene" uid="uid://cx0f5cpaw7q42" path="res://assets/BlackHoleSize1.glb" id="5_ll1a2"]
-[ext_resource type="PackedScene" uid="uid://x3ctxqv43vtt" path="res://assets/Table_Medium_Lab.glb" id="6_iypmn"]
-[ext_resource type="PackedScene" uid="uid://yj3t4kd6tp0q" path="res://assets/Flask_Small_Lab.glb" id="7_ll1a2"]
-[ext_resource type="PackedScene" uid="uid://oddgqy3amfxa" path="res://assets/Table_Large_Lab.glb" id="8_iodom"]
+[ext_resource type="Script" uid="uid://cyggjpmx3nrfs" path="res://Scripts/camera.gd" id="1_ahpur"]
+[ext_resource type="Shader" uid="uid://d3yg7r1gtoshf" path="res://Scenes/dither.gdshader" id="2_43fsd"]
+[ext_resource type="PackedScene" uid="uid://bm86frupxf5yl" path="res://3D-Art/Containment_Lab.glb" id="3_dsalb"]
+[ext_resource type="PackedScene" uid="uid://dgqlem38pyovh" path="res://3D-Art/Main_Lab.glb" id="4_iypmn"]
+[ext_resource type="PackedScene" uid="uid://cx0f5cpaw7q42" path="res://3D-Art/BlackHoleSize1.glb" id="5_ll1a2"]
+[ext_resource type="PackedScene" uid="uid://x3ctxqv43vtt" path="res://3D-Art/Table_Medium_Lab.glb" id="6_iypmn"]
+[ext_resource type="PackedScene" uid="uid://yj3t4kd6tp0q" path="res://3D-Art/Flask_Small_Lab.glb" id="7_ll1a2"]
+[ext_resource type="PackedScene" uid="uid://oddgqy3amfxa" path="res://3D-Art/Table_Large_Lab.glb" id="8_iodom"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
 sky_top_color = Color(0.09930355, 0.1364044, 0.27257028, 1)
@@ -38,7 +38,7 @@ shader_parameter/color_levels = 4.0
 material = SubResource("ShaderMaterial_dither")
 size = Vector2(2, 2)
 
-[node name="Main" type="Node3D" unique_id=1154245291]
+[node name="Main2" type="Node3D" unique_id=1154245291]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1319171211]
 transform = Transform3D(-0.86563313, -0.4177696, 0.27594906, 0.026062274, 0.5128046, 0.85810965, -0.50000006, 0.75, -0.43301266, 38.2321, 398.0105, 130.50122)

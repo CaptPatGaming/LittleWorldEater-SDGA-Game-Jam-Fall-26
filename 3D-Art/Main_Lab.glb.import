@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cn3wss4onwxem"
-path="res://.godot/imported/Containment_Lab.glb-8272749e0b5602f30eda61895e344ae0.scn"
+uid="uid://dgqlem38pyovh"
+path="res://.godot/imported/Main_Lab.glb-c1758972a371e3ee0f241d20873e73ff.scn"
 
 [deps]
 
-source_file="res://Containment_Lab.glb"
-dest_files=["res://.godot/imported/Containment_Lab.glb-8272749e0b5602f30eda61895e344ae0.scn"]
+source_file="res://3D-Art/Main_Lab.glb"
+dest_files=["res://.godot/imported/Main_Lab.glb-c1758972a371e3ee0f241d20873e73ff.scn"]
 
 [params]
 
