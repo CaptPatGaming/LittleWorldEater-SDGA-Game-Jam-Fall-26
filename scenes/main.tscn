@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://o77fmum70w4b"]
 
-[ext_resource type="Script" uid="uid://cyggjpmx3nrfs" path="res://Scripts/camera.gd" id="1_0wfyh"]
+[ext_resource type="Script" uid="uid://cyggjpmx3nrfs" path="res://scripts/camera.gd" id="1_0wfyh"]
 [ext_resource type="Shader" uid="uid://d3yg7r1gtoshf" path="res://scenes/dither.gdshader" id="1_dither"]
-[ext_resource type="PackedScene" uid="uid://dkxnjpdn0bpcl" path="res://3D-Art/Table_Large_Lab.glb" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://bm86frupxf5yl" path="res://assets/Containment_Lab.glb" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dgqlem38pyovh" path="res://assets/Main_Lab.glb" id="4_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://cx0f5cpaw7q42" path="res://assets/BlackHoleSize1.glb" id="5_tbgi4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o5qli"]
 sky_top_color = Color(0.09930355, 0.1364044, 0.27257028, 1)
@@ -36,24 +38,25 @@ size = Vector2(2, 2)
 [node name="Main" type="Node3D" unique_id=1154245291]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1319171211]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.86563313, -0.4177696, 0.27594906, 0.026062274, 0.5128046, 0.85810965, -0.50000006, 0.75, -0.43301266, 38.2321, 398.0105, 130.50122)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1755339013]
 environment = SubResource("Environment_0wfyh")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1079991752]
-transform = Transform3D(0.7055845, -0.19223587, 0.6820527, 0, 0.9625005, 0.27127987, -0.70862573, -0.19141085, 0.67912555, 1.8547239, 1.179728, 1.8353326)
+transform = Transform3D(-0.78333986, 0.28411815, -0.5528613, -0.5403886, -0.75080955, 0.37982273, -0.307179, 0.59629023, 0.7416732, 165.59386, 393.4568, 167.85378)
 script = ExtResource("1_0wfyh")
 
 [node name="PostProcessing" type="MeshInstance3D" parent="Camera3D" unique_id=1475329074]
 extra_cull_margin = 16000.0
 mesh = SubResource("QuadMesh_dither")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1919987408]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050239444, -1.244167, -1.5388184)
-use_collision = true
-size = Vector3(8.538818, 1, 8.279785)
+[node name="Containment_Lab" parent="." unique_id=292035741 instance=ExtResource("3_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.512297, 326.956, 140.10345)
 
-[node name="Table_Large_Lab" parent="." unique_id=1866823354 instance=ExtResource("3_8gbba")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9122214, -0.66388154, -0.007857442)
+[node name="Main_Lab" parent="." unique_id=907265967 instance=ExtResource("4_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.325592, 323.9018, 130.47772)
+
+[node name="BlackHoleSize1" parent="." unique_id=2070736605 instance=ExtResource("5_tbgi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 164.28915, 339.59915, 136.60175)
