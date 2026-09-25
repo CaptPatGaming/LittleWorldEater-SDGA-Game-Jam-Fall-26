@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://hfuqjcey1jjr"]
 
-[ext_resource type="Script" uid="uid://b5ouvvswqvwek" path="res://Scripts/CharacterController.cs" id="1_km32k"]
 [ext_resource type="Script" uid="uid://bbmoemcu8cwgd" path="res://Scripts/SceneLoader.cs" id="1_v5t5f"]
 [ext_resource type="PackedScene" uid="uid://bs5547r7nr6hn" path="res://3D-Art/cube.fbx" id="2_336fg"]
-[ext_resource type="PackedScene" uid="uid://cyv8ui4pogeig" path="res://scenes/Testing_BlackholeB.tscn" id="2_vdbju"]
+[ext_resource type="PackedScene" uid="uid://cyv8ui4pogeig" path="res://Scenes/Testing_BlackholeB.tscn" id="2_vdbju"]
+[ext_resource type="PackedScene" uid="uid://cmw1kru8olawb" path="res://blackhole.tscn" id="3_6wwga"]
 [ext_resource type="PackedScene" uid="uid://8kak2fl8mni7" path="res://3D-Art/houseModel_Large_City.glb" id="3_mimid"]
 [ext_resource type="PackedScene" uid="uid://csvrjrqp4lcre" path="res://assets/Table_Large_Lab.glb" id="6_6f6m8"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_3xsyb"]
-size = Vector3(1, 0.98828125, 1.2634277)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d84jn"]
 size = Vector3(0.4671631, 0.4925537, 0.71240234)
@@ -30,19 +27,7 @@ winSize = 3
 [node name="Camera3D" type="Camera3D" parent="." unique_id=242545521]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 96.02898, 0)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=2054155959 node_paths=PackedStringArray("collision", "model")]
-script = ExtResource("1_km32k")
-massGoal = PackedInt32Array(1, 3, 5)
-sizeScalar = PackedInt32Array(1, 2, 3)
-collision = NodePath("CollisionShape3D")
-model = NodePath("cube")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=432283160]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.52734375, -0.13171387)
-shape = SubResource("BoxShape3D_3xsyb")
-
-[node name="cube" parent="CharacterBody3D" unique_id=884895613 instance=ExtResource("2_336fg")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+[node name="Blackhole" parent="." unique_id=344813496 instance=ExtResource("3_6wwga")]
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="." unique_id=1443702819]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.808228, 0, 0)

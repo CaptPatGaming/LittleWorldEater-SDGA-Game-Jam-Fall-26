@@ -2,10 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://ddloi35r1nelf" path="res://3D-Art/Skyscraper_Small_City.glb" id="1_cscy3"]
 [ext_resource type="Script" uid="uid://bbmoemcu8cwgd" path="res://Scripts/SceneLoader.cs" id="1_mld3d"]
+[ext_resource type="PackedScene" uid="uid://s2r50y7ydkh5" path="res://Scenes/Level3_Space.tscn" id="2_1bhnt"]
 [ext_resource type="PackedScene" uid="uid://8kak2fl8mni7" path="res://3D-Art/houseModel_Large_City.glb" id="2_jwqac"]
 [ext_resource type="PackedScene" uid="uid://daqubecune7lg" path="res://3D-Art/DataCenter_Medium_Cityl.glb" id="3_pgivc"]
 [ext_resource type="PackedScene" uid="uid://dxhgxrvi7w74s" path="res://3D-Art/Tree.glb" id="4_1bhnt"]
 [ext_resource type="PackedScene" uid="uid://04jip2nw22kl" path="res://3D-Art/Generator.glb" id="5_s48g0"]
+[ext_resource type="PackedScene" uid="uid://cmw1kru8olawb" path="res://blackhole.tscn" id="7_pgivc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rifnr"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -63,6 +65,19 @@ albedo_color = Color(0, 0, 0, 1)
 
 [node name="City" type="Node3D" unique_id=874172927]
 script = ExtResource("1_mld3d")
+NextLevel = ExtResource("2_1bhnt")
+winSize = 4
+
+[node name="Blackhole" parent="." unique_id=344813496 node_paths=PackedStringArray("model", "sceneLoader") instance=ExtResource("7_pgivc")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0.39, 0)
+speed = 50
+massGoal = PackedInt32Array(20, 40, 60, 80)
+sizeScalar = PackedFloat32Array(2, 2, 2, 2)
+model = NodePath(".")
+sceneLoader = NodePath("..")
+
+[node name="Camera3D" type="Camera3D" parent="Blackhole" unique_id=1773763715]
+transform = Transform3D(1, 0, 0, 0, -4.3711392e-08, 1, 0, -1, -4.3711392e-08, 0, 20.135, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=495442503]
 transform = Transform3D(-0.9984159, -1.8596945e-09, 0.05626463, 0.032035448, 0.8220807, 0.5684691, -0.04625406, 0.56937104, -0.8207784, 0, 734.2355, -1825.7466)
@@ -107,7 +122,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="SmallHouse" unique_id=805573093 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="SmallHouse/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="SmallHouse/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SmallHouse" unique_id=954092249]
@@ -126,7 +141,7 @@ metadata/mass = 3
 [node name="DataCenter_Medium_Cityl" parent="DataCenter" unique_id=193476925 instance=ExtResource("3_pgivc")]
 transform = Transform3D(8.310052, 0, 0, 0, 8.310052, 0, 0, 0, 8.310052, -121.51758, -1.0482483, 0.5782089)
 
-[node name="Cube_010" parent="DataCenter/DataCenter_Medium_Cityl" index="0" unique_id=99593320]
+[node name="Cube_010" parent="DataCenter/DataCenter_Medium_Cityl" index="0" unique_id=113829171]
 transform = Transform3D(3.1651125, 0, 0, 0, 3.1651125, 0, 0, 0, 3.1651125, 17.814995, 3.4164364, 1.7342086)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DataCenter" unique_id=967413317]
@@ -141,7 +156,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="MediumHouse" unique_id=358158489 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="MediumHouse/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="MediumHouse/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumHouse" unique_id=155888745]
@@ -160,7 +175,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="BigHouse" unique_id=758466546 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="BigHouse/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="BigHouse/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BigHouse" unique_id=1815117524]
@@ -203,7 +218,7 @@ metadata/mass = 3
 [node name="DataCenter_Medium_Cityl" parent="Lab" unique_id=2133193970 instance=ExtResource("3_pgivc")]
 transform = Transform3D(5.2323594, 0, 0, 0, 4.1326756, 0, 0, 0, 8.310052, -98.62552, 6.0876217, 0.57806396)
 
-[node name="Cube_010" parent="Lab/DataCenter_Medium_Cityl" index="0" unique_id=99593320]
+[node name="Cube_010" parent="Lab/DataCenter_Medium_Cityl" index="0" unique_id=113829171]
 transform = Transform3D(3.1651125, 0, 0, 0, 3.1651125, 0, 0, 0, 3.1651125, 17.814995, 3.4164364, 1.7342086)
 surface_material_override/0 = SubResource("StandardMaterial3D_pa6o6")
 
@@ -219,7 +234,7 @@ metadata/mass = 3
 [node name="Tree" parent="Lab/MediumTree3" unique_id=209885907 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="Lab/MediumTree3/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="Lab/MediumTree3/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Lab/MediumTree3" unique_id=1187516124]
@@ -254,7 +269,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree" unique_id=1234042074 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree" unique_id=806981178]
@@ -289,7 +304,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree2" unique_id=1985322623 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree2/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree2/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree2" unique_id=2092511790]
@@ -372,7 +387,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree3" unique_id=712976944 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree3/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree3/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree3" unique_id=1893297406]
@@ -391,7 +406,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree4" unique_id=310580078 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree4/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree4/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree4" unique_id=548386927]
@@ -426,7 +441,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree5" unique_id=1428414351 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree5/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree5/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree5" unique_id=1533742558]
@@ -445,7 +460,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree6" unique_id=496255618 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree6/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree6/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree6" unique_id=1144942493]
@@ -464,7 +479,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree7" unique_id=1239639030 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree7/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree7/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree7" unique_id=1334013827]
@@ -500,7 +515,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree8" unique_id=1309354610 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree8/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree8/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree8" unique_id=30474908]
@@ -591,7 +606,7 @@ metadata/mass = 3
 [node name="DataCenter_Medium_Cityl" parent="DataCenter2" unique_id=1999882892 instance=ExtResource("3_pgivc")]
 transform = Transform3D(8.310052, 0, 0, 0, 8.310052, 0, 0, 0, 8.310052, -121.51758, -1.0482483, 0.5782089)
 
-[node name="Cube_010" parent="DataCenter2/DataCenter_Medium_Cityl" index="0" unique_id=99593320]
+[node name="Cube_010" parent="DataCenter2/DataCenter_Medium_Cityl" index="0" unique_id=113829171]
 transform = Transform3D(3.1651125, 0, 0, 0, 3.1651125, 0, 0, 0, 3.1651125, 17.814995, 3.4164362, -0.15315628)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DataCenter2" unique_id=1357634253]
@@ -675,7 +690,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree9" unique_id=916108684 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree9/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree9/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree9" unique_id=1747182001]
@@ -694,7 +709,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree10" unique_id=274054553 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree10/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree10/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree10" unique_id=167821910]
@@ -793,7 +808,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree11" unique_id=1210121201 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree11/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree11/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree11" unique_id=740053091]
@@ -812,7 +827,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree12" unique_id=395457574 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree12/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree12/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree12" unique_id=278055833]
@@ -895,7 +910,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree13" unique_id=332341256 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree13/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree13/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree13" unique_id=1556603005]
@@ -930,7 +945,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree14" unique_id=1657866296 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree14/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree14/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree14" unique_id=858884532]
@@ -1013,7 +1028,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree15" unique_id=360322391 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree15/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree15/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree15" unique_id=702300692]
@@ -1467,7 +1482,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="SmallHouse2" unique_id=1985345716 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="SmallHouse2/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="SmallHouse2/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SmallHouse2" unique_id=1353072181]
@@ -1486,7 +1501,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="MediumHouse2" unique_id=898225033 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="MediumHouse2/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="MediumHouse2/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumHouse2" unique_id=1952572811]
@@ -1505,7 +1520,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="MediumHouse3" unique_id=2087614929 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="MediumHouse3/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="MediumHouse3/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumHouse3" unique_id=1889455374]
@@ -1524,7 +1539,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="SmallHouse3" unique_id=1432182140 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="SmallHouse3/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="SmallHouse3/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SmallHouse3" unique_id=398254828]
@@ -1543,7 +1558,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="MediumHouse4" unique_id=1528243038 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="MediumHouse4/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="MediumHouse4/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumHouse4" unique_id=2050685747]
@@ -1562,7 +1577,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="MediumHouse5" unique_id=1080310743 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="MediumHouse5/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="MediumHouse5/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumHouse5" unique_id=1807110896]
@@ -1581,7 +1596,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="BigHouse2" unique_id=1318780397 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="BigHouse2/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="BigHouse2/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BigHouse2" unique_id=1327248960]
@@ -1600,7 +1615,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="MediumHouse6" unique_id=825318241 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="MediumHouse6/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="MediumHouse6/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumHouse6" unique_id=1182144268]
@@ -1619,7 +1634,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="MediumHouse7" unique_id=751390958 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="MediumHouse7/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="MediumHouse7/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumHouse7" unique_id=273988957]
@@ -1638,7 +1653,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="BigHouse3" unique_id=320809484 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="BigHouse3/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="BigHouse3/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BigHouse3" unique_id=1942327256]
@@ -1657,7 +1672,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="MediumHouse8" unique_id=221169636 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="MediumHouse8/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="MediumHouse8/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumHouse8" unique_id=1114387338]
@@ -1676,7 +1691,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="SmallHouse4" unique_id=237462826 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="SmallHouse4/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="SmallHouse4/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SmallHouse4" unique_id=1205284523]
@@ -1695,7 +1710,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="SmallHouse5" unique_id=1376035840 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="SmallHouse5/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="SmallHouse5/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SmallHouse5" unique_id=1695210638]
@@ -1714,7 +1729,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="SmallHouse6" unique_id=1748476489 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="SmallHouse6/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="SmallHouse6/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SmallHouse6" unique_id=875966869]
@@ -1733,7 +1748,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="BigHouse4" unique_id=1622271702 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="BigHouse4/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="BigHouse4/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BigHouse4" unique_id=1516023905]
@@ -1752,7 +1767,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="MediumHouse9" unique_id=872346451 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="MediumHouse9/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="MediumHouse9/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumHouse9" unique_id=1025136053]
@@ -1771,7 +1786,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="SmallHouse7" unique_id=1263254334 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="SmallHouse7/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="SmallHouse7/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SmallHouse7" unique_id=480725209]
@@ -1790,7 +1805,7 @@ metadata/mass = 3
 [node name="houseModel_Large_City" parent="SmallHouse8" unique_id=1417758799 instance=ExtResource("2_jwqac")]
 transform = Transform3D(-7.218431e-09, 0, 0.16513845, 0, 0.16513845, 0, -0.16513845, 0, -7.218431e-09, -0.09313965, -0.6517234, 2.3996735)
 
-[node name="Cube_002" parent="SmallHouse8/houseModel_Large_City" index="2" unique_id=328857288]
+[node name="Cube_002" parent="SmallHouse8/houseModel_Large_City" index="2" unique_id=2011640199]
 transform = Transform3D(77.958244, 0, 0, 0, 77.958244, 0, 0, 0, 77.958244, 16.345, 74.503, -0.658)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SmallHouse8" unique_id=765773031]
@@ -1809,7 +1824,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree16" unique_id=2067140909 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree16/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree16/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree16" unique_id=1884720141]
@@ -1844,7 +1859,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree17" unique_id=1330205209 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree17/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree17/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree17" unique_id=980054761]
@@ -1927,7 +1942,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree18" unique_id=1645891101 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree18/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree18/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree18" unique_id=1149040900]
@@ -1946,7 +1961,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree19" unique_id=934958872 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree19/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree19/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree19" unique_id=914204198]
@@ -1981,7 +1996,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree20" unique_id=1036676008 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree20/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree20/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree20" unique_id=61386885]
@@ -2000,7 +2015,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree21" unique_id=320489569 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree21/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree21/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree21" unique_id=817180300]
@@ -2051,7 +2066,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree23" unique_id=9041254 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree23/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree23/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree23" unique_id=1403411201]
@@ -2086,7 +2101,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree24" unique_id=1729791075 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree24/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree24/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree24" unique_id=528999872]
@@ -2169,7 +2184,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree22" unique_id=1209295671 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree22/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree22/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree22" unique_id=1675963882]
@@ -2188,7 +2203,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree25" unique_id=1176958533 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree25/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree25/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree25" unique_id=1329624187]
@@ -2207,7 +2222,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree26" unique_id=2088738839 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree26/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree26/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree26" unique_id=1766347547]
@@ -2258,7 +2273,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree27" unique_id=1270165410 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree27/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree27/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree27" unique_id=1006709152]
@@ -2277,7 +2292,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree28" unique_id=1510272442 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree28/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree28/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree28" unique_id=613516420]
@@ -2296,7 +2311,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree29" unique_id=1255954710 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree29/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree29/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree29" unique_id=1135408636]
@@ -2347,7 +2362,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree30" unique_id=750011424 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree30/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree30/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree30" unique_id=672911588]
@@ -2430,7 +2445,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree31" unique_id=844205074 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree31/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree31/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree31" unique_id=2067963788]
@@ -2449,7 +2464,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree32" unique_id=546369138 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree32/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree32/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree32" unique_id=455946751]
@@ -2500,7 +2515,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree33" unique_id=536005821 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree33/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree33/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree33" unique_id=898479448]
@@ -2519,7 +2534,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree34" unique_id=434173616 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree34/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree34/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree34" unique_id=1869946135]
@@ -2538,7 +2553,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree35" unique_id=542367854 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree35/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree35/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree35" unique_id=1349075382]
@@ -2557,7 +2572,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree36" unique_id=905720325 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree36/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree36/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree36" unique_id=581087897]
@@ -2624,7 +2639,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree37" unique_id=769134508 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree37/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree37/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree37" unique_id=9934202]
@@ -2643,7 +2658,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree38" unique_id=1637487712 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree38/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree38/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree38" unique_id=151787486]
@@ -2662,7 +2677,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree39" unique_id=1936895279 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree39/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree39/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree39" unique_id=4561031]
@@ -2681,7 +2696,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree40" unique_id=1997614025 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree40/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree40/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree40" unique_id=1367095315]
@@ -2700,7 +2715,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree41" unique_id=1201118535 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree41/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree41/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree41" unique_id=305356170]
@@ -2719,7 +2734,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree42" unique_id=549809945 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree42/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree42/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree42" unique_id=773839727]
@@ -2738,7 +2753,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree43" unique_id=2128143098 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree43/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree43/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree43" unique_id=519670449]
@@ -2757,7 +2772,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree44" unique_id=874616371 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree44/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree44/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree44" unique_id=1331754240]
@@ -2776,7 +2791,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree45" unique_id=144022314 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree45/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree45/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree45" unique_id=214639601]
@@ -2795,7 +2810,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree46" unique_id=1885544024 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree46/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree46/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree46" unique_id=987544235]
@@ -2878,7 +2893,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree47" unique_id=786540181 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree47/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree47/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree47" unique_id=775695994]
@@ -2897,7 +2912,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree48" unique_id=857008227 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree48/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree48/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree48" unique_id=568496353]
@@ -3076,7 +3091,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree49" unique_id=2046030444 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree49/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree49/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree49" unique_id=79888244]
@@ -3127,7 +3142,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree50" unique_id=594752486 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree50/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree50/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree50" unique_id=609324885]
@@ -3146,7 +3161,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree51" unique_id=486285336 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree51/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree51/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree51" unique_id=1538745713]
@@ -3229,7 +3244,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree52" unique_id=358090146 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree52/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree52/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree52" unique_id=1765897070]
@@ -3248,7 +3263,7 @@ metadata/mass = 3
 [node name="Tree" parent="MediumTree53" unique_id=1133535781 instance=ExtResource("4_1bhnt")]
 transform = Transform3D(8.101339, 0, 0, 0, 8.101339, 0, 0, 0, 8.101339, 0.09448242, -1.0482254, 0.16946411)
 
-[node name="Sphere" parent="MediumTree53/Tree" index="1" unique_id=850517546]
+[node name="Sphere" parent="MediumTree53/Tree" index="1" unique_id=1976379444]
 transform = Transform3D(0.753565, 0, 0, 0, 0.753565, 0, 0, 0, 0.753565, 0, 1.5520171, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MediumTree53" unique_id=242386254]

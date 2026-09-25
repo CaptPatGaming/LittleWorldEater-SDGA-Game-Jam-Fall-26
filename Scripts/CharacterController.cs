@@ -10,7 +10,7 @@ public partial class CharacterController : CharacterBody3D
 	[Export][Range(1, 5)]int size = 1;
 	[Export]int mass = 0;
 	[Export]int[] massGoal;
-	[Export]int[] sizeScalar;
+	[Export]float[] sizeScalar;
 	[Export]Node3D collision;
 	[Export]Node3D model;
 	[Export] SceneLoader sceneLoader;
@@ -51,21 +51,25 @@ public partial class CharacterController : CharacterBody3D
 	{
 		Velocity = GetDirection() * speed;
 		MoveAndSlide();
-
+		
 		for(int i = 0; i < GetSlideCollisionCount(); i++)
 		{
+			GD.Print("Collided");
 			Node collider = GetSlideCollision(i).GetCollider() as Node;
 			if(collider != null && collider.HasMeta("size"))
 			{
+				GD.Print("Has metadata");
 				TryEat(collider, (int)collider.GetMeta("size"), (int)collider.GetMeta("mass"));
 			}
 		}
 	}
 	public void TryEat(Node _object, int s, int m)
 	{
-		if( s < size)
+
+		if( s <= size)
 		{
 			mass+=m;
+			GD.Print("Mass:"+mass);
 			_object.QueueFree();
 			if(mass >= massGoal[size - 1])
 			{
@@ -77,6 +81,7 @@ public partial class CharacterController : CharacterBody3D
 	}
 	public void Resize()
 	{
+		GD.Print("Resize: "+ size);
 		model.Scale *= sizeScalar[size-1];
 		collision.Scale *= sizeScalar[size-1];
 	}
