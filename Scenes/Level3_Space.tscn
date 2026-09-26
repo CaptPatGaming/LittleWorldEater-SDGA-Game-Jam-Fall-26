@@ -356,6 +356,66 @@ surface_material_override/0 = SubResource("StandardMaterial3D_357j6")
 transform = Transform3D(6.3891964, 0, 0, 0, 6.3891964, 0, 0, 0, 6.3891964, -0.7522402, 0.13321304, 0.6621072)
 shape = SubResource("ConcavePolygonShape3D_2m1j2")
 
+[node name="MediumPlanet5" type="StaticBody3D" parent="." unique_id=411533209]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -175.89084, 44.71628, 309.71255)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Star_Space_Largel" parent="MediumPlanet5" unique_id=1654438660 instance=ExtResource("1_mwf86")]
+transform = Transform3D(2.0070753, 0, 0, 0, 2.0070753, 0, 0, 0, 2.0070753, -5.4277954, 5.03817, 27.940277)
+
+[node name="Sphere_002" parent="MediumPlanet5/Star_Space_Largel" index="0" unique_id=122376987]
+surface_material_override/0 = SubResource("StandardMaterial3D_s77ny")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MediumPlanet5" unique_id=572446385]
+transform = Transform3D(12.823598, 0, 0, 0, 12.823598, 0, 0, 0, 12.823598, 0.8136139, 7.231476, -8.473404)
+shape = SubResource("ConcavePolygonShape3D_2m1j2")
+
+[node name="MediumPlanet6" type="StaticBody3D" parent="." unique_id=1807824541]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.296474, 44.71628, -306.46655)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Star_Space_Largel" parent="MediumPlanet6" unique_id=291439761 instance=ExtResource("1_mwf86")]
+transform = Transform3D(2.0070753, 0, 0, 0, 2.0070753, 0, 0, 0, 2.0070753, -5.4277954, 5.03817, 27.940277)
+
+[node name="Sphere_002" parent="MediumPlanet6/Star_Space_Largel" index="0" unique_id=122376987]
+surface_material_override/0 = SubResource("StandardMaterial3D_s77ny")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MediumPlanet6" unique_id=959355210]
+transform = Transform3D(12.823598, 0, 0, 0, 12.823598, 0, 0, 0, 12.823598, 0.8136139, 7.231476, -8.473404)
+shape = SubResource("ConcavePolygonShape3D_2m1j2")
+
+[node name="MediumPlanet7" type="StaticBody3D" parent="." unique_id=491611445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -552.88196, 44.71628, -2.8612611)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Star_Space_Largel" parent="MediumPlanet7" unique_id=1513158688 instance=ExtResource("1_mwf86")]
+transform = Transform3D(2.0070753, 0, 0, 0, 2.0070753, 0, 0, 0, 2.0070753, -5.4277954, 5.03817, 27.940277)
+
+[node name="Sphere_002" parent="MediumPlanet7/Star_Space_Largel" index="0" unique_id=122376987]
+surface_material_override/0 = SubResource("StandardMaterial3D_s77ny")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MediumPlanet7" unique_id=1290347714]
+transform = Transform3D(12.823598, 0, 0, 0, 12.823598, 0, 0, 0, 12.823598, 0.8136139, 7.231476, -8.473404)
+shape = SubResource("ConcavePolygonShape3D_2m1j2")
+
+[node name="MediumPlanet8" type="StaticBody3D" parent="." unique_id=2081159722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -454.64157, 44.71628, -214.86554)
+metadata/size = 2
+metadata/mass = 3
+
+[node name="Star_Space_Largel" parent="MediumPlanet8" unique_id=1355545816 instance=ExtResource("1_mwf86")]
+transform = Transform3D(2.0070753, 0, 0, 0, 2.0070753, 0, 0, 0, 2.0070753, -5.4277954, 5.03817, 27.940277)
+
+[node name="Sphere_002" parent="MediumPlanet8/Star_Space_Largel" index="0" unique_id=122376987]
+surface_material_override/0 = SubResource("StandardMaterial3D_s77ny")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MediumPlanet8" unique_id=59595986]
+transform = Transform3D(12.823598, 0, 0, 0, 12.823598, 0, 0, 0, 12.823598, 0.8136139, 7.231476, -8.473404)
+shape = SubResource("ConcavePolygonShape3D_2m1j2")
+
 [editable path="SpaceFloor/SpaceFloorMesh"]
 [editable path="SmallPlanet/Star_Space_Largel"]
 [editable path="MediumPlanet/Star_Space_Largel"]
@@ -377,3 +437,7 @@ shape = SubResource("ConcavePolygonShape3D_2m1j2")
 [editable path="SmallPlanet10/Star_Space_Largel"]
 [editable path="SmallPlanet11/Star_Space_Largel"]
 [editable path="SmallPlanet12/Star_Space_Largel"]
+[editable path="MediumPlanet5/Star_Space_Largel"]
+[editable path="MediumPlanet6/Star_Space_Largel"]
+[editable path="MediumPlanet7/Star_Space_Largel"]
+[editable path="MediumPlanet8/Star_Space_Largel"]
